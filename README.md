@@ -8,7 +8,7 @@ A single-player 2D puzzle and deduction game by Rolands Leja (rl23030). Investig
 
 1. [Download the Windows build](https://github.com/RLeja/HiddenWatts/releases/latest/download/HiddenWatts-Prototype-I-Windows-x64.zip).
 2. Extract the entire ZIP into a folder.
-3. Double-click **HiddenWatts.exe**, then select **Begin investigation**.
+3. Double-click **HiddenWatts.exe**.
 
 Players do **not** need Godot, Visual Studio, the .NET SDK or a separate .NET installation. The Windows x64 build includes its runtime. Keep the executable, `HiddenWatts.pck` and the accompanying data folder together.
 
@@ -17,50 +17,6 @@ The game targets Windows 10/11 on Intel or AMD 64-bit PCs.
 - [Prototype I presentation (PDF)](docs/presentation/HiddenWatts-Prototype-I.pdf)
 - [Editable presentation (PowerPoint)](docs/presentation/HiddenWatts-Prototype-I.pptx)
 - [Scenario data](src/data/scenarios.json)
-
-## Build or run from source (developers)
-
-### Requirements
-
-- Windows PC
-- **Godot 4.7.2 .NET** (the C# edition, not the standard Godot editor)
-- **.NET 8 SDK** installed and available through `dotnet`
-- Internet access for the first NuGet restore
-
-### Godot editor
-
-1. Download the repository as a ZIP and extract it, or clone it:
-
-   ```powershell
-   git clone https://github.com/RLeja/HiddenWatts.git
-   cd HiddenWatts
-   ```
-
-2. Open the Godot .NET project manager, select **Import**, and choose `src/project.godot`.
-3. Open the project and wait for the assets to finish importing.
-4. Build the C# project using Godot's **Build** button. You can also build from the repository root:
-
-   ```powershell
-   dotnet restore src/HiddenWatts.csproj
-   dotnet build src/HiddenWatts.csproj
-   ```
-
-5. Press **F5** to run the main scene and select **Begin investigation**.
-
-The main scene is `src/scenes/ui/main_menu.tscn`. Run the whole project with F5 so the menu and case selection work together.
-
-## Export a Windows build (developers)
-
-Install the **Godot 4.7.2 .NET export templates**, then open **Project > Export**, select **Windows Desktop** and export the project. The checked-in preset targets Windows x64.
-
-From the repository root, after importing and building the project:
-
-```powershell
-New-Item -ItemType Directory -Force dist/windows
-& "C:/path/to/Godot_console.exe" --headless --path src --export-release "Windows Desktop" "../dist/windows/HiddenWatts.exe"
-```
-
-Distribute the **whole exported folder** as a ZIP, including the .NET data folder. Build files belong in GitHub Releases rather than the source repository.
 
 ## Controls
 
@@ -103,15 +59,3 @@ The core puzzle asks the player to identify avoidable electricity use and select
 The game uses `kWh = watts / 1000 * hours`. Results estimate 30 days of savings using each case's electricity price and emissions factor. Current cases use EUR 0.25/kWh and 0.20 kg CO2/kWh. These are illustrative game assumptions, not measured household savings or a verified environmental assessment.
 
 Scoring awards 100 points per major problem resolved and 10 points per unused inspection after resolving a problem. Each incorrect action costs 50 points and inspecting a non-major device costs 10 points. Scores cannot fall below zero.
-
-## Current limitations and Prototype II plan
-
-The prototype currently uses one house layout and three authored cases. It has no saved progression between sessions. Proposed next steps are playtesting and balancing the clue system, adding households and cases, clearer feedback after fixes, and saved case progress.
-
-## Development and AI usage
-
-**Developer:** Rolands Leja (rl23030). Solo project. Responsibilities include the concept, design direction, scene editing, asset placement and playtesting.
-
-**OpenAI Codex:** assisted with C# implementation, debugging, collision and UI fixes, script cleanup, JSON scenarios, device clues, documentation and presentation preparation. The game uses authored scenario data and does not call a generative AI service during play.
-
-**Tools:** Godot .NET, C#, Visual Studio, and existing supplied sprite assets. Font license files accompany the bundled fonts.
