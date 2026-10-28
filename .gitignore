@@ -10,3 +10,6 @@
 .env
 .env.*
 tmp/
+
+# Packaged builds are published as GitHub release downloads
+dist/

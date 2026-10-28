@@ -4,13 +4,21 @@ A single-player 2D puzzle and deduction game by Rolands Leja (rl23030). Investig
 
 ## Playable Prototype I
 
-The repository contains the playable Godot C# project. Follow the instructions below to run it on Windows. A standalone game download is not required for this source-based submission.
+### Play on Windows
+
+1. [Download the Windows build](https://github.com/RLeja/HiddenWatts/releases/latest/download/HiddenWatts-Prototype-I-Windows-x64.zip).
+2. Extract the entire ZIP into a folder.
+3. Double-click **HiddenWatts.exe**, then select **Begin investigation**.
+
+Players do **not** need Godot, Visual Studio, the .NET SDK or a separate .NET installation. The Windows x64 build includes its runtime. Keep the executable, `HiddenWatts.pck` and the accompanying data folder together.
+
+The game targets Windows 10/11 on Intel or AMD 64-bit PCs.
 
 - [Prototype I presentation (PDF)](docs/presentation/HiddenWatts-Prototype-I.pdf)
 - [Editable presentation (PowerPoint)](docs/presentation/HiddenWatts-Prototype-I.pptx)
 - [Scenario data](src/data/scenarios.json)
 
-## How to run
+## Build or run from source (developers)
 
 ### Requirements
 
@@ -40,6 +48,19 @@ The repository contains the playable Godot C# project. Follow the instructions b
 5. Press **F5** to run the main scene and select **Begin investigation**.
 
 The main scene is `src/scenes/ui/main_menu.tscn`. Run the whole project with F5 so the menu and case selection work together.
+
+## Export a Windows build (developers)
+
+Install the **Godot 4.7.2 .NET export templates**, then open **Project > Export**, select **Windows Desktop** and export the project. The checked-in preset targets Windows x64.
+
+From the repository root, after importing and building the project:
+
+```powershell
+New-Item -ItemType Directory -Force dist/windows
+& "C:/path/to/Godot_console.exe" --headless --path src --export-release "Windows Desktop" "../dist/windows/HiddenWatts.exe"
+```
+
+Distribute the **whole exported folder** as a ZIP, including the .NET data folder. Build files belong in GitHub Releases rather than the source repository.
 
 ## Controls
 
