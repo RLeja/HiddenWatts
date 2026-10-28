@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://c0hppemo36ws4"]
+
+[ext_resource type="PackedScene" uid="uid://bbmxti2ahcubj" path="res://scenes/levels/house.tscn" id="1_k3ko1"]
+[ext_resource type="PackedScene" uid="uid://dqayru23huji3" path="res://scenes/entitites/player.tscn" id="2_x6flg"]
+
+[ext_resource type="Script" path="res://scripts/gameplay/Investigation.cs" id="3_case"]
+[ext_resource type="PackedScene" path="res://scenes/ui/game_hud.tscn" id="4_hud"]
+
+[ext_resource type="JSON" path="res://data/scenarios.json" id="5_scenarios"]
+
+[node name="GameManager" type="Node" unique_id=1952999836]
+script = ExtResource("3_case")
+
+ScenarioFile = ExtResource("5_scenarios")
+
+[node name="Control" type="Control" parent="." unique_id=1187280916]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.16, 0.18, 0.16, 1)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Control" unique_id=1969938664]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Control/SubViewportContainer" unique_id=214656758]
+handle_input_locally = false
+transparent_bg = true
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Level" parent="Control/SubViewportContainer/SubViewport" unique_id=1294302439 instance=ExtResource("1_k3ko1")]
+
+[node name="Player" parent="Control/SubViewportContainer/SubViewport/Level" unique_id=446332836 instance=ExtResource("2_x6flg")]
+position = Vector2(328, 396)
+
+[node name="Camera2D" parent="Control/SubViewportContainer/SubViewport/Level/Player" index="4"]
+enabled = true
+zoom = Vector2(2.2, 2.2)
+limit_left = -32
+limit_top = -32
+limit_right = 672
+limit_bottom = 464
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+
+[editable path="Control/SubViewportContainer/SubViewport/Level/Player"]
+
+[node name="Interface" type="CanvasLayer" parent="."]
+layer = 20
+
+[node name="GameHud" parent="Interface" instance=ExtResource("4_hud")]

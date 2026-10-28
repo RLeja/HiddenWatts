@@ -1,0 +1,12 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Local editor, build and authoring files
+.vs/
+[Bb]in/
+[Oo]bj/
+~$*
+.env
+.env.*
+tmp/

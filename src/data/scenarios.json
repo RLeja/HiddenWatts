@@ -1,0 +1,1559 @@
+[
+  {
+    "Id": "AfterHours",
+    "Number": 1,
+    "Title": "After hours",
+    "Summary": "A family home. An electricity bill that keeps rising.",
+    "Brief": "The family says nothing has changed, but their electricity bill has risen. Examine the house and find three major sources of wasted energy. You have six detailed inspections.",
+    "InspectionBudget": 6,
+    "RequiredFindings": 3,
+    "PricePerKwh": 0.25,
+    "EmissionsPerKwh": 0.2,
+    "Appliances": [
+      {
+        "Id": "Refrigerator",
+        "Name": "Refrigerator",
+        "Room": "Kitchen",
+        "NodePath": "Kitchen/Refrigerator",
+        "Observation": "The compressor seems to run often.",
+        "Evidence": "The gasket does not meet the frame. The family added a bulky food container five days ago; the compressor now runs much longer.",
+        "Actions": [
+          {
+            "Text": "Clear the obstruction and close the door",
+            "IsCorrect": true
+          },
+          {
+            "Text": "Disconnect the refrigerator with food inside",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Lower the temperature further",
+            "IsCorrect": false
+          }
+        ],
+        "MajorProblem": true,
+        "DailySavingsKwh": 0.96,
+        "Usage": {
+          "Watts": 120,
+          "OperatingTime": "20 h/day of compressor activity",
+          "RecentChange": "+8 h/day compared with last week",
+          "Overnight": "Frequent compressor activity, 00:00–06:00",
+          "Standby": "Thermostat-controlled cycling",
+          "History": [
+            "Five days ago / a large food container was added.",
+            "Yesterday / compressor active for 20 hours; previous average: 12 hours.",
+            "At inspection / cool air is escaping through the door gap."
+          ],
+          "DailyKwh": [
+            1.44,
+            1.45,
+            2.28,
+            2.4,
+            2.38,
+            2.42,
+            2.4
+          ]
+        },
+        "PreInspectionHint": "The door looks almost closed, but one corner sits slightly proud of the frame. The motor remains audible while you look around."
+      },
+      {
+        "Id": "ElectricOven",
+        "Name": "Electric oven",
+        "Room": "Kitchen",
+        "NodePath": "Kitchen/ElectricOven",
+        "Observation": "The oven is still warm after dinner.",
+        "Evidence": "Cooking finishes at 19:00. The oven stays on until 20:00 with no food inside. The household does this every evening.",
+        "Actions": [
+          {
+            "Text": "Keep it warm until bedtime",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Switch it off when cooking is finished",
+            "IsCorrect": true
+          },
+          {
+            "Text": "Preheat it earlier",
+            "IsCorrect": false
+          }
+        ],
+        "MajorProblem": true,
+        "DailySavingsKwh": 2.0,
+        "Usage": {
+          "Watts": 2000,
+          "OperatingTime": "2 h/day; only 1 h used for cooking",
+          "RecentChange": "+1 unused hour every evening",
+          "Overnight": "Off after 20:00",
+          "Standby": "No heating while switched off",
+          "History": [
+            "18:00 / oven switched on for dinner.",
+            "19:00 / meal removed; oven left running.",
+            "20:00 / resident notices the indicator and switches it off."
+          ],
+          "DailyKwh": [
+            2.0,
+            2.0,
+            4.0,
+            4.0,
+            4.0,
+            4.0,
+            4.0
+          ]
+        },
+        "PreInspectionHint": "The food has already been served, yet the heating indicator glows again. The family seems unsure who last touched the controls."
+      },
+      {
+        "Id": "Computer",
+        "Name": "Desktop computer",
+        "Room": "Study",
+        "NodePath": "Study/Computer",
+        "Observation": "The study is empty, but the screen is on.",
+        "Evidence": "The resident works from 18:00 to 22:00. Afterwards the computer stays fully active until 06:00. Automatic sleep is disabled.",
+        "Actions": [
+          {
+            "Text": "Turn off only the monitor",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Leave it running for convenience",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Enable sleep or shut down after use",
+            "IsCorrect": true
+          }
+        ],
+        "MajorProblem": true,
+        "DailySavingsKwh": 1.44,
+        "Usage": {
+          "Watts": 180,
+          "OperatingTime": "12 h/day; 4 h of actual use",
+          "RecentChange": "+8 unattended hours every night",
+          "Overnight": "Active from 22:00 to 06:00",
+          "Standby": "Sleep disabled; remains at active power",
+          "History": [
+            "18:00 / resident begins work.",
+            "22:00 / last keyboard activity; resident leaves the study.",
+            "22:00–06:00 / computer continues at about 180 W."
+          ],
+          "DailyKwh": [
+            0.72,
+            0.74,
+            2.16,
+            2.16,
+            2.16,
+            2.16,
+            2.16
+          ]
+        },
+        "PreInspectionHint": "The resident says they finished using the desk much earlier. A notification briefly lights up the otherwise unattended screen."
+      },
+      {
+        "Id": "Television",
+        "Name": "Television",
+        "Room": "Living room",
+        "NodePath": "LivingRoom/Television",
+        "Observation": "The television is connected to a media receiver.",
+        "Evidence": "The family watches together for two hours, then switches the television off. This routine has stayed the same for several months.",
+        "Actions": [
+          {
+            "Text": "Disconnect it permanently",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Replace it immediately",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Keep the current routine",
+            "IsCorrect": true
+          }
+        ],
+        "MajorProblem": false,
+        "DailySavingsKwh": 0.0,
+        "Usage": {
+          "Watts": 80,
+          "OperatingTime": "2 h/day",
+          "RecentChange": "No recent increase",
+          "Overnight": "Off throughout the night",
+          "Standby": "Less than 1 W when off",
+          "History": [
+            "19:30 / television on; living room occupied.",
+            "21:30 / television switched off.",
+            "Overnight / no viewing activity recorded."
+          ],
+          "DailyKwh": [
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16
+          ]
+        },
+        "PreInspectionHint": "The room is quiet now. The remote has been put away with the evening television guide."
+      },
+      {
+        "Id": "Microwave",
+        "Name": "Microwave",
+        "Room": "Kitchen",
+        "NodePath": "Kitchen/Microwave",
+        "Observation": "A clock is visible on the display.",
+        "Evidence": "The microwave heats lunch for six minutes each day. The display stays on, but its power draw is much smaller than during heating.",
+        "Actions": [
+          {
+            "Text": "Replace it immediately",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Keep the current routine",
+            "IsCorrect": true
+          },
+          {
+            "Text": "Stop using it to heat meals",
+            "IsCorrect": false
+          }
+        ],
+        "MajorProblem": false,
+        "DailySavingsKwh": 0.0,
+        "Usage": {
+          "Watts": 1000,
+          "OperatingTime": "6 min/day of heating",
+          "RecentChange": "No change in heating time",
+          "Overnight": "Clock only; no heating",
+          "Standby": "About 1 W for the clock",
+          "History": [
+            "12:30 / a meal is heated for six minutes.",
+            "12:36 / heating stops automatically.",
+            "Remaining time / approximately 1 W display draw."
+          ],
+          "DailyKwh": [
+            0.124,
+            0.124,
+            0.124,
+            0.124,
+            0.124,
+            0.124,
+            0.124
+          ]
+        },
+        "PreInspectionHint": "Only the clock is lit. A covered meal nearby suggests short reheating rather than prolonged cooking."
+      },
+      {
+        "Id": "CoffeeMaker",
+        "Name": "Coffee maker",
+        "Room": "Kitchen",
+        "NodePath": "Kitchen/CoffeeMaker",
+        "Observation": "A coffee maker sits beside the preparation area.",
+        "Evidence": "The machine brews in the morning and automatically switches off after ten minutes. The warming plate does not run all day.",
+        "Actions": [
+          {
+            "Text": "Keep the automatic shutoff",
+            "IsCorrect": true
+          },
+          {
+            "Text": "Keep it hot all day",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Replace it immediately",
+            "IsCorrect": false
+          }
+        ],
+        "MajorProblem": false,
+        "DailySavingsKwh": 0.0,
+        "Usage": {
+          "Watts": 800,
+          "OperatingTime": "10 min/day",
+          "RecentChange": "No recent increase",
+          "Overnight": "Switched off",
+          "Standby": "Automatic shutoff enabled",
+          "History": [
+            "07:00 / coffee preparation begins.",
+            "07:10 / automatic shutoff activates.",
+            "Rest of the day / heating remains off."
+          ],
+          "DailyKwh": [
+            0.133,
+            0.133,
+            0.133,
+            0.133,
+            0.133,
+            0.133,
+            0.133
+          ]
+        },
+        "PreInspectionHint": "The switch is off and the plate is cool. A rinsed cup sits on the drying rack."
+      },
+      {
+        "Id": "ReadingLamp",
+        "Name": "Reading lamp",
+        "Room": "Study",
+        "NodePath": "Study/ReadingLamp",
+        "Observation": "A small lamp stands beside the reading chair.",
+        "Evidence": "An 8 W LED bulb is used for three occupied hours each evening: 0.024 kWh/day. It is switched off when the resident leaves.",
+        "Actions": [
+          {
+            "Text": "Remove the light from the room",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Keep the current routine",
+            "IsCorrect": true
+          },
+          {
+            "Text": "Leave it on overnight",
+            "IsCorrect": false
+          }
+        ],
+        "MajorProblem": false,
+        "DailySavingsKwh": 0.0,
+        "Usage": {
+          "Watts": 8,
+          "OperatingTime": "3 h/day",
+          "RecentChange": "No recent increase",
+          "Overnight": "Switched off",
+          "Standby": "No standby draw",
+          "History": [
+            "18:30 / lamp on while reading.",
+            "21:30 / resident leaves; lamp switched off.",
+            "Overnight / no electricity use recorded."
+          ],
+          "DailyKwh": [
+            0.024,
+            0.024,
+            0.024,
+            0.024,
+            0.024,
+            0.024,
+            0.024
+          ]
+        },
+        "PreInspectionHint": "A bookmark rests halfway through a book. The resident describes using this chair for an evening read."
+      },
+      {
+        "Id": "GameConsole",
+        "Name": "Game console",
+        "Room": "Study",
+        "NodePath": "Study/GameConsole",
+        "Observation": "The console is plugged in beside the computer.",
+        "Evidence": "The console is used for an hour on weekends and automatically powers down. Its activity does not match the nightly rise in consumption.",
+        "Actions": [
+          {
+            "Text": "Leave it running",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Replace it immediately",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Keep automatic power-down enabled",
+            "IsCorrect": true
+          }
+        ],
+        "MajorProblem": false,
+        "DailySavingsKwh": 0.0,
+        "Usage": {
+          "Watts": 90,
+          "OperatingTime": "1 h on weekend days",
+          "RecentChange": "No recent increase",
+          "Overnight": "No active play",
+          "Standby": "About 0.5 W after power-down",
+          "History": [
+            "Weekdays / standby only.",
+            "Saturday and Sunday / one hour of play each day.",
+            "After play / automatic power-down activates."
+          ],
+          "DailyKwh": [
+            0.012,
+            0.012,
+            0.012,
+            0.012,
+            0.012,
+            0.102,
+            0.102
+          ]
+        },
+        "PreInspectionHint": "The controller is put away. The resident says it mostly comes out for weekend games."
+      },
+      {
+        "Id": "BedroomTelevision",
+        "Name": "Bedroom television",
+        "Room": "Bedroom",
+        "NodePath": "Bedroom/BedroomTelevision",
+        "Observation": "A second television stands on the bedroom dresser.",
+        "Evidence": "The resident watches for an hour before bed. A sleep timer turns it off every night, and the viewing routine has not changed.",
+        "Actions": [
+          {
+            "Text": "Disable the sleep timer",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Keep the sleep timer enabled",
+            "IsCorrect": true
+          },
+          {
+            "Text": "Replace the television immediately",
+            "IsCorrect": false
+          }
+        ],
+        "MajorProblem": false,
+        "DailySavingsKwh": 0.0,
+        "Usage": {
+          "Watts": 60,
+          "OperatingTime": "1 h/day before bedtime",
+          "RecentChange": "No recent increase",
+          "Overnight": "Sleep timer switches it off at 22:30",
+          "Standby": "About 0.5 W after shutoff",
+          "History": [
+            "21:30 / resident watches in the bedroom.",
+            "22:30 / sleep timer switches the television off.",
+            "22:30–07:00 / standby only; no active viewing."
+          ],
+          "DailyKwh": [
+            0.072,
+            0.072,
+            0.072,
+            0.072,
+            0.072,
+            0.072,
+            0.072
+          ]
+        },
+        "PreInspectionHint": "A sleep-timer option is selected on the remote. The resident mentions watching a little television before bed."
+      },
+      {
+        "Id": "BedsideLamp",
+        "Name": "Bedside lamp",
+        "Room": "Bedroom",
+        "NodePath": "Bedroom/BedsideLamp",
+        "Observation": "A small reading lamp stands beside the bed.",
+        "Evidence": "The lamp uses a 5 W LED bulb. It is used for half an hour of reading and is switched off before the resident goes to sleep.",
+        "Actions": [
+          {
+            "Text": "Keep switching it off after reading",
+            "IsCorrect": true
+          },
+          {
+            "Text": "Leave the lamp on until morning",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Replace it with a higher-wattage bulb",
+            "IsCorrect": false
+          }
+        ],
+        "MajorProblem": false,
+        "DailySavingsKwh": 0.0,
+        "Usage": {
+          "Watts": 5,
+          "OperatingTime": "30 min/day of reading",
+          "RecentChange": "No recent increase",
+          "Overnight": "Switched off before sleep",
+          "Standby": "No standby draw",
+          "History": [
+            "22:00 / bedside LED switched on for reading.",
+            "22:30 / resident switches the lamp off.",
+            "Overnight / no electricity use recorded."
+          ],
+          "DailyKwh": [
+            0.0025,
+            0.0025,
+            0.0025,
+            0.0025,
+            0.0025,
+            0.0025,
+            0.0025
+          ]
+        },
+        "PreInspectionHint": "A closed book lies beside the switch. The resident says the light goes out when the book is put down."
+      },
+      {
+        "Id": "FloorLamp",
+        "Name": "Living-room floor lamp",
+        "Room": "Living room",
+        "NodePath": "LivingRoom/FloorLamp",
+        "Observation": "A shaded floor lamp stands beside the sofa.",
+        "Evidence": "The lamp has a 7 W LED bulb. The family uses it for three occupied hours each evening, then switches it off when leaving the living room.",
+        "Actions": [
+          {
+            "Text": "Leave it on overnight",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Keep switching it off when the room is empty",
+            "IsCorrect": true
+          },
+          {
+            "Text": "Replace the LED with a higher-wattage bulb",
+            "IsCorrect": false
+          }
+        ],
+        "MajorProblem": false,
+        "DailySavingsKwh": 0.0,
+        "Usage": {
+          "Watts": 7,
+          "OperatingTime": "3 h/day while the living room is occupied",
+          "RecentChange": "No recent increase",
+          "Overnight": "Switched off",
+          "Standby": "No standby draw",
+          "History": [
+            "17:30 / resident turns on the lamp beside the sofa.",
+            "20:30 / resident leaves and switches the lamp off.",
+            "Overnight / no electricity use recorded."
+          ],
+          "DailyKwh": [
+            0.021,
+            0.021,
+            0.021,
+            0.021,
+            0.021,
+            0.021,
+            0.021
+          ]
+        },
+        "PreInspectionHint": "A book and two cups sit by the sofa. The resident describes switching this lamp on when people sit here."
+      }
+    ]
+  },
+  {
+    "Id": "EmptyRooms",
+    "Number": 2,
+    "Title": "Empty rooms",
+    "Summary": "Empty rooms. A meter that keeps running.",
+    "Brief": "Most rooms are empty overnight, but the electricity meter keeps recording activity. Find three major sources of avoidable use with six detailed inspections.",
+    "InspectionBudget": 6,
+    "RequiredFindings": 3,
+    "PricePerKwh": 0.25,
+    "EmissionsPerKwh": 0.2,
+    "Appliances": [
+      {
+        "Id": "Refrigerator",
+        "Name": "Refrigerator",
+        "Room": "Kitchen",
+        "NodePath": "Kitchen/Refrigerator",
+        "Observation": "The compressor seems to run often.",
+        "Evidence": "The gasket does not meet the frame. The family added a bulky food container five days ago; the compressor now runs much longer.",
+        "Actions": [
+          {
+            "Text": "Clear the obstruction and close the door",
+            "IsCorrect": true
+          },
+          {
+            "Text": "Disconnect the refrigerator with food inside",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Lower the temperature further",
+            "IsCorrect": false
+          }
+        ],
+        "MajorProblem": true,
+        "DailySavingsKwh": 0.96,
+        "Usage": {
+          "Watts": 120,
+          "OperatingTime": "20 h/day of compressor activity",
+          "RecentChange": "+8 h/day compared with last week",
+          "Overnight": "Frequent compressor activity, 00:00–06:00",
+          "Standby": "Thermostat-controlled cycling",
+          "History": [
+            "Five days ago / a large food container was added.",
+            "Yesterday / compressor active for 20 hours; previous average: 12 hours.",
+            "At inspection / cool air is escaping through the door gap."
+          ],
+          "DailyKwh": [
+            1.44,
+            1.45,
+            2.28,
+            2.4,
+            2.38,
+            2.42,
+            2.4
+          ]
+        },
+        "PreInspectionHint": "The door looks almost closed, but one corner sits slightly proud of the frame. The motor remains audible while you look around."
+      },
+      {
+        "Id": "ElectricOven",
+        "Name": "Electric oven",
+        "Room": "Kitchen",
+        "NodePath": "Kitchen/ElectricOven",
+        "Observation": "Dinner is over and the oven is cooling down.",
+        "Evidence": "Cooking lasts one hour. The oven is switched off as soon as the meal is ready; this routine has not changed.",
+        "Actions": [
+          {
+            "Text": "Keep it warm until bedtime",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Keep switching it off when cooking finishes",
+            "IsCorrect": true
+          },
+          {
+            "Text": "Start preheating an hour earlier",
+            "IsCorrect": false
+          }
+        ],
+        "MajorProblem": false,
+        "DailySavingsKwh": 0,
+        "Usage": {
+          "Watts": 2000,
+          "OperatingTime": "1 h/day of cooking",
+          "RecentChange": "No recent increase",
+          "Overnight": "Off after dinner",
+          "Standby": "No heating while switched off",
+          "History": [
+            "18:00 / cooking begins.",
+            "19:00 / meal removed and oven switched off.",
+            "After dinner / the oven cools without active heating."
+          ],
+          "DailyKwh": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ]
+        },
+        "PreInspectionHint": "The controls are off. Dinner dishes are still on the counter, and the warmth seems to be fading."
+      },
+      {
+        "Id": "Computer",
+        "Name": "Desktop computer",
+        "Room": "Study",
+        "NodePath": "Study/Computer",
+        "Observation": "The study is empty, but the screen is on.",
+        "Evidence": "The resident works from 18:00 to 22:00. Afterwards the computer stays fully active until 06:00. Automatic sleep is disabled.",
+        "Actions": [
+          {
+            "Text": "Turn off only the monitor",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Leave it running for convenience",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Enable sleep or shut down after use",
+            "IsCorrect": true
+          }
+        ],
+        "MajorProblem": true,
+        "DailySavingsKwh": 1.44,
+        "Usage": {
+          "Watts": 180,
+          "OperatingTime": "12 h/day; 4 h of actual use",
+          "RecentChange": "+8 unattended hours every night",
+          "Overnight": "Active from 22:00 to 06:00",
+          "Standby": "Sleep disabled; remains at active power",
+          "History": [
+            "18:00 / resident begins work.",
+            "22:00 / last keyboard activity; resident leaves the study.",
+            "22:00–06:00 / computer continues at about 180 W."
+          ],
+          "DailyKwh": [
+            0.72,
+            0.74,
+            2.16,
+            2.16,
+            2.16,
+            2.16,
+            2.16
+          ]
+        },
+        "PreInspectionHint": "The resident says they finished using the desk much earlier. A notification briefly lights up the otherwise unattended screen."
+      },
+      {
+        "Id": "Television",
+        "Name": "Television",
+        "Room": "Living room",
+        "NodePath": "LivingRoom/Television",
+        "Observation": "The television is connected to a media receiver.",
+        "Evidence": "The family watches together for two hours, then switches the television off. This routine has stayed the same for several months.",
+        "Actions": [
+          {
+            "Text": "Disconnect it permanently",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Replace it immediately",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Keep the current routine",
+            "IsCorrect": true
+          }
+        ],
+        "MajorProblem": false,
+        "DailySavingsKwh": 0.0,
+        "Usage": {
+          "Watts": 80,
+          "OperatingTime": "2 h/day",
+          "RecentChange": "No recent increase",
+          "Overnight": "Off throughout the night",
+          "Standby": "Less than 1 W when off",
+          "History": [
+            "19:30 / television on; living room occupied.",
+            "21:30 / television switched off.",
+            "Overnight / no viewing activity recorded."
+          ],
+          "DailyKwh": [
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16
+          ]
+        },
+        "PreInspectionHint": "The room is quiet now. The remote has been put away with the evening television guide."
+      },
+      {
+        "Id": "Microwave",
+        "Name": "Microwave",
+        "Room": "Kitchen",
+        "NodePath": "Kitchen/Microwave",
+        "Observation": "A clock is visible on the display.",
+        "Evidence": "The microwave heats lunch for six minutes each day. The display stays on, but its power draw is much smaller than during heating.",
+        "Actions": [
+          {
+            "Text": "Replace it immediately",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Keep the current routine",
+            "IsCorrect": true
+          },
+          {
+            "Text": "Stop using it to heat meals",
+            "IsCorrect": false
+          }
+        ],
+        "MajorProblem": false,
+        "DailySavingsKwh": 0.0,
+        "Usage": {
+          "Watts": 1000,
+          "OperatingTime": "6 min/day of heating",
+          "RecentChange": "No change in heating time",
+          "Overnight": "Clock only; no heating",
+          "Standby": "About 1 W for the clock",
+          "History": [
+            "12:30 / a meal is heated for six minutes.",
+            "12:36 / heating stops automatically.",
+            "Remaining time / approximately 1 W display draw."
+          ],
+          "DailyKwh": [
+            0.124,
+            0.124,
+            0.124,
+            0.124,
+            0.124,
+            0.124,
+            0.124
+          ]
+        },
+        "PreInspectionHint": "Only the clock is lit. A covered meal nearby suggests short reheating rather than prolonged cooking."
+      },
+      {
+        "Id": "CoffeeMaker",
+        "Name": "Coffee maker",
+        "Room": "Kitchen",
+        "NodePath": "Kitchen/CoffeeMaker",
+        "Observation": "A coffee maker sits beside the preparation area.",
+        "Evidence": "The machine brews in the morning and automatically switches off after ten minutes. The warming plate does not run all day.",
+        "Actions": [
+          {
+            "Text": "Keep the automatic shutoff",
+            "IsCorrect": true
+          },
+          {
+            "Text": "Keep it hot all day",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Replace it immediately",
+            "IsCorrect": false
+          }
+        ],
+        "MajorProblem": false,
+        "DailySavingsKwh": 0.0,
+        "Usage": {
+          "Watts": 800,
+          "OperatingTime": "10 min/day",
+          "RecentChange": "No recent increase",
+          "Overnight": "Switched off",
+          "Standby": "Automatic shutoff enabled",
+          "History": [
+            "07:00 / coffee preparation begins.",
+            "07:10 / automatic shutoff activates.",
+            "Rest of the day / heating remains off."
+          ],
+          "DailyKwh": [
+            0.133,
+            0.133,
+            0.133,
+            0.133,
+            0.133,
+            0.133,
+            0.133
+          ]
+        },
+        "PreInspectionHint": "The switch is off and the plate is cool. A rinsed cup sits on the drying rack."
+      },
+      {
+        "Id": "ReadingLamp",
+        "Name": "Reading lamp",
+        "Room": "Study",
+        "NodePath": "Study/ReadingLamp",
+        "Observation": "A small lamp stands beside the reading chair.",
+        "Evidence": "An 8 W LED bulb is used for three occupied hours each evening: 0.024 kWh/day. It is switched off when the resident leaves.",
+        "Actions": [
+          {
+            "Text": "Remove the light from the room",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Keep the current routine",
+            "IsCorrect": true
+          },
+          {
+            "Text": "Leave it on overnight",
+            "IsCorrect": false
+          }
+        ],
+        "MajorProblem": false,
+        "DailySavingsKwh": 0.0,
+        "Usage": {
+          "Watts": 8,
+          "OperatingTime": "3 h/day",
+          "RecentChange": "No recent increase",
+          "Overnight": "Switched off",
+          "Standby": "No standby draw",
+          "History": [
+            "18:30 / lamp on while reading.",
+            "21:30 / resident leaves; lamp switched off.",
+            "Overnight / no electricity use recorded."
+          ],
+          "DailyKwh": [
+            0.024,
+            0.024,
+            0.024,
+            0.024,
+            0.024,
+            0.024,
+            0.024
+          ]
+        },
+        "PreInspectionHint": "A bookmark rests halfway through a book. The resident describes using this chair for an evening read."
+      },
+      {
+        "Id": "GameConsole",
+        "Name": "Game console",
+        "Room": "Study",
+        "NodePath": "Study/GameConsole",
+        "Observation": "The console is plugged in beside the computer.",
+        "Evidence": "The console is used for an hour on weekends and automatically powers down. Its activity does not match the nightly rise in consumption.",
+        "Actions": [
+          {
+            "Text": "Leave it running",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Replace it immediately",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Keep automatic power-down enabled",
+            "IsCorrect": true
+          }
+        ],
+        "MajorProblem": false,
+        "DailySavingsKwh": 0.0,
+        "Usage": {
+          "Watts": 90,
+          "OperatingTime": "1 h on weekend days",
+          "RecentChange": "No recent increase",
+          "Overnight": "No active play",
+          "Standby": "About 0.5 W after power-down",
+          "History": [
+            "Weekdays / standby only.",
+            "Saturday and Sunday / one hour of play each day.",
+            "After play / automatic power-down activates."
+          ],
+          "DailyKwh": [
+            0.012,
+            0.012,
+            0.012,
+            0.012,
+            0.012,
+            0.102,
+            0.102
+          ]
+        },
+        "PreInspectionHint": "The controller is put away. The resident says it mostly comes out for weekend games."
+      },
+      {
+        "Id": "BedroomTelevision",
+        "Name": "Bedroom television",
+        "Room": "Bedroom",
+        "NodePath": "Bedroom/BedroomTelevision",
+        "Observation": "A second television stands on the bedroom dresser.",
+        "Evidence": "The resident watches for an hour before bed. A sleep timer turns it off every night, and the viewing routine has not changed.",
+        "Actions": [
+          {
+            "Text": "Disable the sleep timer",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Keep the sleep timer enabled",
+            "IsCorrect": true
+          },
+          {
+            "Text": "Replace the television immediately",
+            "IsCorrect": false
+          }
+        ],
+        "MajorProblem": false,
+        "DailySavingsKwh": 0.0,
+        "Usage": {
+          "Watts": 60,
+          "OperatingTime": "1 h/day before bedtime",
+          "RecentChange": "No recent increase",
+          "Overnight": "Sleep timer switches it off at 22:30",
+          "Standby": "About 0.5 W after shutoff",
+          "History": [
+            "21:30 / resident watches in the bedroom.",
+            "22:30 / sleep timer switches the television off.",
+            "22:30–07:00 / standby only; no active viewing."
+          ],
+          "DailyKwh": [
+            0.072,
+            0.072,
+            0.072,
+            0.072,
+            0.072,
+            0.072,
+            0.072
+          ]
+        },
+        "PreInspectionHint": "A sleep-timer option is selected on the remote. The resident mentions watching a little television before bed."
+      },
+      {
+        "Id": "BedsideLamp",
+        "Name": "Bedside lamp",
+        "Room": "Bedroom",
+        "NodePath": "Bedroom/BedsideLamp",
+        "Observation": "A small reading lamp stands beside the bed.",
+        "Evidence": "The lamp uses a 5 W LED bulb. It is used for half an hour of reading and is switched off before the resident goes to sleep.",
+        "Actions": [
+          {
+            "Text": "Keep switching it off after reading",
+            "IsCorrect": true
+          },
+          {
+            "Text": "Leave the lamp on until morning",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Replace it with a higher-wattage bulb",
+            "IsCorrect": false
+          }
+        ],
+        "MajorProblem": false,
+        "DailySavingsKwh": 0.0,
+        "Usage": {
+          "Watts": 5,
+          "OperatingTime": "30 min/day of reading",
+          "RecentChange": "No recent increase",
+          "Overnight": "Switched off before sleep",
+          "Standby": "No standby draw",
+          "History": [
+            "22:00 / bedside LED switched on for reading.",
+            "22:30 / resident switches the lamp off.",
+            "Overnight / no electricity use recorded."
+          ],
+          "DailyKwh": [
+            0.0025,
+            0.0025,
+            0.0025,
+            0.0025,
+            0.0025,
+            0.0025,
+            0.0025
+          ]
+        },
+        "PreInspectionHint": "A closed book lies beside the switch. The resident says the light goes out when the book is put down."
+      },
+      {
+        "Id": "FloorLamp",
+        "Name": "Living-room floor lamp",
+        "Room": "Living room",
+        "NodePath": "LivingRoom/FloorLamp",
+        "Observation": "The living room is empty, but the floor lamp is still lit.",
+        "Evidence": "The lamp has an older 60 W bulb. It is needed for three hours each evening but stays on for eight additional hours after everyone leaves.",
+        "Actions": [
+          {
+            "Text": "Keep the lamp on until morning",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Switch it off when leaving the living room",
+            "IsCorrect": true
+          },
+          {
+            "Text": "Use a higher-wattage bulb",
+            "IsCorrect": false
+          }
+        ],
+        "MajorProblem": true,
+        "DailySavingsKwh": 0.48,
+        "Usage": {
+          "Watts": 60,
+          "OperatingTime": "11 h/day; only 3 h while occupied",
+          "RecentChange": "Eight extra hours after the family changed its routine",
+          "Overnight": "Left on from 21:00 to 05:00",
+          "Standby": "No standby: the bulb remains fully lit",
+          "History": [
+            "18:00 / family gathers in the living room.",
+            "21:00 / everyone leaves; lamp remains on.",
+            "05:00 / first resident switches the lamp off."
+          ],
+          "DailyKwh": [
+            0.18,
+            0.18,
+            0.66,
+            0.66,
+            0.66,
+            0.66,
+            0.66
+          ]
+        },
+        "PreInspectionHint": "The cups have been cleared away and nobody is sitting here. The resident says they often leave this room in a hurry."
+      }
+    ]
+  },
+  {
+    "Id": "AfterTheGuests",
+    "Number": 3,
+    "Title": "After the guests",
+    "Summary": "The guests left. Their routines did not.",
+    "Brief": "Electricity use stayed high after a family visit. Check which routines and device settings were left behind. Resolve three major problems using no more than six inspections.",
+    "InspectionBudget": 6,
+    "RequiredFindings": 3,
+    "PricePerKwh": 0.25,
+    "EmissionsPerKwh": 0.2,
+    "Appliances": [
+      {
+        "Id": "Refrigerator",
+        "Name": "Refrigerator",
+        "Room": "Kitchen",
+        "NodePath": "Kitchen/Refrigerator",
+        "Observation": "The refrigerator door is closed and the compressor cycles normally.",
+        "Evidence": "The gasket seals fully. Compressor activity is unchanged and the household has not added any large containers.",
+        "Actions": [
+          {
+            "Text": "Keep closing the door after use",
+            "IsCorrect": true
+          },
+          {
+            "Text": "Set the coldest possible temperature",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Leave the door ajar",
+            "IsCorrect": false
+          }
+        ],
+        "MajorProblem": false,
+        "DailySavingsKwh": 0,
+        "Usage": {
+          "Watts": 120,
+          "OperatingTime": "12 h/day of compressor activity",
+          "RecentChange": "No recent increase",
+          "Overnight": "Normal thermostat-controlled cycling",
+          "Standby": "Compressor off between cycles",
+          "History": [
+            "Morning / door opened briefly for breakfast.",
+            "Across the day / compressor cycles for about twelve hours.",
+            "At inspection / door seals fully."
+          ],
+          "DailyKwh": [
+            1.44,
+            1.44,
+            1.44,
+            1.44,
+            1.44,
+            1.44,
+            1.44
+          ]
+        },
+        "PreInspectionHint": "The door sits flush with the frame. During your look around, the motor falls quiet between short bursts."
+      },
+      {
+        "Id": "ElectricOven",
+        "Name": "Electric oven",
+        "Room": "Kitchen",
+        "NodePath": "Kitchen/ElectricOven",
+        "Observation": "Dinner is over and the oven is cooling down.",
+        "Evidence": "Cooking lasts one hour. The oven is switched off as soon as the meal is ready; this routine has not changed.",
+        "Actions": [
+          {
+            "Text": "Keep it warm until bedtime",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Keep switching it off when cooking finishes",
+            "IsCorrect": true
+          },
+          {
+            "Text": "Start preheating an hour earlier",
+            "IsCorrect": false
+          }
+        ],
+        "MajorProblem": false,
+        "DailySavingsKwh": 0,
+        "Usage": {
+          "Watts": 2000,
+          "OperatingTime": "1 h/day of cooking",
+          "RecentChange": "No recent increase",
+          "Overnight": "Off after dinner",
+          "Standby": "No heating while switched off",
+          "History": [
+            "18:00 / cooking begins.",
+            "19:00 / meal removed and oven switched off.",
+            "After dinner / the oven cools without active heating."
+          ],
+          "DailyKwh": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ]
+        },
+        "PreInspectionHint": "The controls are off. Dinner dishes are still on the counter, and the warmth seems to be fading."
+      },
+      {
+        "Id": "Computer",
+        "Name": "Desktop computer",
+        "Room": "Study",
+        "NodePath": "Study/Computer",
+        "Observation": "The study is empty and the computer is asleep.",
+        "Evidence": "The resident works for four hours. Automatic sleep activates after use and reduces overnight power to about 3 W.",
+        "Actions": [
+          {
+            "Text": "Disable automatic sleep",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Leave it active overnight",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Keep automatic sleep enabled",
+            "IsCorrect": true
+          }
+        ],
+        "MajorProblem": false,
+        "DailySavingsKwh": 0,
+        "Usage": {
+          "Watts": 180,
+          "OperatingTime": "4 h/day of actual use",
+          "RecentChange": "No recent increase",
+          "Overnight": "Sleep mode from 22:00 to 06:00",
+          "Standby": "About 3 W in sleep mode",
+          "History": [
+            "18:00 / resident begins work.",
+            "22:00 / work ends and sleep activates.",
+            "Overnight / approximately 3 W, with no active tasks."
+          ],
+          "DailyKwh": [
+            0.744,
+            0.744,
+            0.744,
+            0.744,
+            0.744,
+            0.744,
+            0.744
+          ]
+        },
+        "PreInspectionHint": "The power light pulses gently. The resident says the machine usually goes quiet when they leave the desk."
+      },
+      {
+        "Id": "Television",
+        "Name": "Television",
+        "Room": "Living room",
+        "NodePath": "LivingRoom/Television",
+        "Observation": "The television is connected to a media receiver.",
+        "Evidence": "The family watches together for two hours, then switches the television off. This routine has stayed the same for several months.",
+        "Actions": [
+          {
+            "Text": "Disconnect it permanently",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Replace it immediately",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Keep the current routine",
+            "IsCorrect": true
+          }
+        ],
+        "MajorProblem": false,
+        "DailySavingsKwh": 0.0,
+        "Usage": {
+          "Watts": 80,
+          "OperatingTime": "2 h/day",
+          "RecentChange": "No recent increase",
+          "Overnight": "Off throughout the night",
+          "Standby": "Less than 1 W when off",
+          "History": [
+            "19:30 / television on; living room occupied.",
+            "21:30 / television switched off.",
+            "Overnight / no viewing activity recorded."
+          ],
+          "DailyKwh": [
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16
+          ]
+        },
+        "PreInspectionHint": "The room is quiet now. The remote has been put away with the evening television guide."
+      },
+      {
+        "Id": "Microwave",
+        "Name": "Microwave",
+        "Room": "Kitchen",
+        "NodePath": "Kitchen/Microwave",
+        "Observation": "A clock is visible on the display.",
+        "Evidence": "The microwave heats lunch for six minutes each day. The display stays on, but its power draw is much smaller than during heating.",
+        "Actions": [
+          {
+            "Text": "Replace it immediately",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Keep the current routine",
+            "IsCorrect": true
+          },
+          {
+            "Text": "Stop using it to heat meals",
+            "IsCorrect": false
+          }
+        ],
+        "MajorProblem": false,
+        "DailySavingsKwh": 0.0,
+        "Usage": {
+          "Watts": 1000,
+          "OperatingTime": "6 min/day of heating",
+          "RecentChange": "No change in heating time",
+          "Overnight": "Clock only; no heating",
+          "Standby": "About 1 W for the clock",
+          "History": [
+            "12:30 / a meal is heated for six minutes.",
+            "12:36 / heating stops automatically.",
+            "Remaining time / approximately 1 W display draw."
+          ],
+          "DailyKwh": [
+            0.124,
+            0.124,
+            0.124,
+            0.124,
+            0.124,
+            0.124,
+            0.124
+          ]
+        },
+        "PreInspectionHint": "Only the clock is lit. A covered meal nearby suggests short reheating rather than prolonged cooking."
+      },
+      {
+        "Id": "CoffeeMaker",
+        "Name": "Coffee maker",
+        "Room": "Kitchen",
+        "NodePath": "Kitchen/CoffeeMaker",
+        "Observation": "The coffee pot is empty, but the warming plate is hot.",
+        "Evidence": "Automatic shutoff was disabled during the visit. After a ten-minute brew, the 80 W warming plate keeps running for eight unused hours.",
+        "Actions": [
+          {
+            "Text": "Restore automatic shutoff after brewing",
+            "IsCorrect": true
+          },
+          {
+            "Text": "Leave the warming plate on all day",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Replace the machine immediately",
+            "IsCorrect": false
+          }
+        ],
+        "MajorProblem": true,
+        "DailySavingsKwh": 0.64,
+        "Usage": {
+          "Watts": 800,
+          "OperatingTime": "10 min brewing plus 8 h of unused warming",
+          "RecentChange": "Eight extra hours of warming after the visit",
+          "Overnight": "Switched off overnight",
+          "Standby": "Not standby: warming plate draws about 80 W",
+          "History": [
+            "07:00 / 800 W brewing begins.",
+            "07:10 / coffee is served; warming plate remains active at 80 W.",
+            "15:10 / the empty machine is finally switched off."
+          ],
+          "DailyKwh": [
+            0.133,
+            0.133,
+            0.773,
+            0.773,
+            0.773,
+            0.773,
+            0.773
+          ]
+        },
+        "PreInspectionHint": "There is dried coffee at the bottom of the pot. The resident cannot remember when the last cup was poured."
+      },
+      {
+        "Id": "ReadingLamp",
+        "Name": "Reading lamp",
+        "Room": "Study",
+        "NodePath": "Study/ReadingLamp",
+        "Observation": "A small lamp stands beside the reading chair.",
+        "Evidence": "An 8 W LED bulb is used for three occupied hours each evening: 0.024 kWh/day. It is switched off when the resident leaves.",
+        "Actions": [
+          {
+            "Text": "Remove the light from the room",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Keep the current routine",
+            "IsCorrect": true
+          },
+          {
+            "Text": "Leave it on overnight",
+            "IsCorrect": false
+          }
+        ],
+        "MajorProblem": false,
+        "DailySavingsKwh": 0.0,
+        "Usage": {
+          "Watts": 8,
+          "OperatingTime": "3 h/day",
+          "RecentChange": "No recent increase",
+          "Overnight": "Switched off",
+          "Standby": "No standby draw",
+          "History": [
+            "18:30 / lamp on while reading.",
+            "21:30 / resident leaves; lamp switched off.",
+            "Overnight / no electricity use recorded."
+          ],
+          "DailyKwh": [
+            0.024,
+            0.024,
+            0.024,
+            0.024,
+            0.024,
+            0.024,
+            0.024
+          ]
+        },
+        "PreInspectionHint": "A bookmark rests halfway through a book. The resident describes using this chair for an evening read."
+      },
+      {
+        "Id": "GameConsole",
+        "Name": "Game console",
+        "Room": "Study",
+        "NodePath": "Study/GameConsole",
+        "Observation": "The console is plugged in beside the computer.",
+        "Evidence": "The console is used for an hour on weekends and automatically powers down. Its activity does not match the nightly rise in consumption.",
+        "Actions": [
+          {
+            "Text": "Leave it running",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Replace it immediately",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Keep automatic power-down enabled",
+            "IsCorrect": true
+          }
+        ],
+        "MajorProblem": false,
+        "DailySavingsKwh": 0.0,
+        "Usage": {
+          "Watts": 90,
+          "OperatingTime": "1 h on weekend days",
+          "RecentChange": "No recent increase",
+          "Overnight": "No active play",
+          "Standby": "About 0.5 W after power-down",
+          "History": [
+            "Weekdays / standby only.",
+            "Saturday and Sunday / one hour of play each day.",
+            "After play / automatic power-down activates."
+          ],
+          "DailyKwh": [
+            0.012,
+            0.012,
+            0.012,
+            0.012,
+            0.012,
+            0.102,
+            0.102
+          ]
+        },
+        "PreInspectionHint": "The controller is put away. The resident says it mostly comes out for weekend games."
+      },
+      {
+        "Id": "BedroomTelevision",
+        "Name": "Bedroom television",
+        "Room": "Bedroom",
+        "NodePath": "Bedroom/BedroomTelevision",
+        "Observation": "The bedroom is empty but the television is playing.",
+        "Evidence": "A guest disabled the sleep timer. The resident watches for one hour, then the television continues for eight unused hours.",
+        "Actions": [
+          {
+            "Text": "Leave it on until morning",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Restore the sleep timer or switch off after viewing",
+            "IsCorrect": true
+          },
+          {
+            "Text": "Replace it immediately",
+            "IsCorrect": false
+          }
+        ],
+        "MajorProblem": true,
+        "DailySavingsKwh": 0.48,
+        "Usage": {
+          "Watts": 60,
+          "OperatingTime": "9 h/day; 1 h of viewing",
+          "RecentChange": "Eight unattended hours added after the visit",
+          "Overnight": "Active from 22:30 to 06:30",
+          "Standby": "Sleep timer disabled",
+          "History": [
+            "21:30 / resident begins watching.",
+            "22:30 / resident falls asleep; television stays active.",
+            "06:30 / television is finally switched off."
+          ],
+          "DailyKwh": [
+            0.072,
+            0.072,
+            0.548,
+            0.548,
+            0.548,
+            0.548,
+            0.548
+          ]
+        },
+        "PreInspectionHint": "The bed looks unused tonight. You can hear a programme continuing even though everyone is elsewhere in the house."
+      },
+      {
+        "Id": "BedsideLamp",
+        "Name": "Bedside lamp",
+        "Room": "Bedroom",
+        "NodePath": "Bedroom/BedsideLamp",
+        "Observation": "The bedside lamp is still on after the resident has gone to sleep.",
+        "Evidence": "The lamp uses a 40 W bulb. Half an hour of reading is followed by eight and a half unnecessary hours with the light on.",
+        "Actions": [
+          {
+            "Text": "Switch it off after reading",
+            "IsCorrect": true
+          },
+          {
+            "Text": "Leave it on until morning",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Fit a higher-wattage bulb",
+            "IsCorrect": false
+          }
+        ],
+        "MajorProblem": true,
+        "DailySavingsKwh": 0.34,
+        "Usage": {
+          "Watts": 40,
+          "OperatingTime": "9 h/night; 30 min of reading",
+          "RecentChange": "Eight and a half unattended hours added",
+          "Overnight": "Left on from 22:30 to 07:00",
+          "Standby": "No standby draw",
+          "History": [
+            "22:00 / resident starts reading.",
+            "22:30 / resident sleeps; lamp stays on.",
+            "07:00 / lamp is switched off."
+          ],
+          "DailyKwh": [
+            0.02,
+            0.02,
+            0.36,
+            0.36,
+            0.36,
+            0.36,
+            0.36
+          ]
+        },
+        "PreInspectionHint": "The book is closed and the resident is no longer reading. They mention sometimes drifting off before reaching for the switch."
+      },
+      {
+        "Id": "FloorLamp",
+        "Name": "Living-room floor lamp",
+        "Room": "Living room",
+        "NodePath": "LivingRoom/FloorLamp",
+        "Observation": "A shaded floor lamp stands beside the sofa.",
+        "Evidence": "The lamp has a 7 W LED bulb. The family uses it for three occupied hours each evening, then switches it off when leaving the living room.",
+        "Actions": [
+          {
+            "Text": "Leave it on overnight",
+            "IsCorrect": false
+          },
+          {
+            "Text": "Keep switching it off when the room is empty",
+            "IsCorrect": true
+          },
+          {
+            "Text": "Replace the LED with a higher-wattage bulb",
+            "IsCorrect": false
+          }
+        ],
+        "MajorProblem": false,
+        "DailySavingsKwh": 0.0,
+        "Usage": {
+          "Watts": 7,
+          "OperatingTime": "3 h/day while the living room is occupied",
+          "RecentChange": "No recent increase",
+          "Overnight": "Switched off",
+          "Standby": "No standby draw",
+          "History": [
+            "17:30 / resident turns on the lamp beside the sofa.",
+            "20:30 / resident leaves and switches the lamp off.",
+            "Overnight / no electricity use recorded."
+          ],
+          "DailyKwh": [
+            0.021,
+            0.021,
+            0.021,
+            0.021,
+            0.021,
+            0.021,
+            0.021
+          ]
+        },
+        "PreInspectionHint": "A book and two cups sit by the sofa. The resident describes switching this lamp on when people sit here."
+      }
+    ]
+  }
+]

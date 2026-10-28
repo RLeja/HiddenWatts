@@ -1,0 +1,1094 @@
+[gd_scene format=4 uid="uid://bbmxti2ahcubj"]
+
+[ext_resource type="Texture2D" uid="uid://b7rshv1kf5gmw" path="res://assets/levels/exteriors.png" id="1_exterior"]
+[ext_resource type="Texture2D" uid="uid://cmev4xs7m0grf" path="res://assets/levels/interiors.png" id="2_interior"]
+[ext_resource type="Texture2D" uid="uid://p2lg6tbv7pgg" path="res://assets/levels/appliances.png" id="3_appliances"]
+[ext_resource type="Texture2D" uid="uid://xcnutns6fybx" path="res://assets/levels/kitchen.png" id="4_kitchen"]
+[ext_resource type="Script" uid="uid://dp6v26enwyvew" path="res://scripts/levels/HouseLevel.cs" id="5_level"]
+
+[sub_resource type="TileSetAtlasSource" id="Atlas_house"]
+texture = ExtResource("1_exterior")
+11:5/0 = 0
+11:7/0 = 0
+11:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:9/0 = 0
+11:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:13/0 = 0
+11:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:11/0 = 0
+11:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:11/0 = 0
+4:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:13/0 = 0
+4:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:15/0 = 0
+4:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:9/0 = 0
+1:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:10/0 = 0
+1:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:7/0 = 0
+1:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:8/0 = 0
+1:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:19/0 = 0
+1:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:20/0 = 0
+1:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+15:2/0 = 0
+15:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="Tiles_house"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("Atlas_house")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbbkb"]
+atlas = ExtResource("2_interior")
+region = Rect2(91.82022, 16.022667, 41.17978, 63.977333)
+
+[sub_resource type="RectangleShape2D" id="Collision_Bedroom_Bed"]
+size = Vector2(40, 46)
+
+[sub_resource type="RectangleShape2D" id="Collision_Bedroom_BedsideTable"]
+size = Vector2(21.5, 11)
+
+[sub_resource type="RectangleShape2D" id="Collision_Bedroom_BedsideLamp"]
+size = Vector2(15, 8)
+
+[sub_resource type="RectangleShape2D" id="Collision_Bedroom_Wardrobe"]
+size = Vector2(28, 34)
+
+[sub_resource type="RectangleShape2D" id="Collision_Bedroom_Dresser"]
+size = Vector2(32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6eqm"]
+atlas = ExtResource("2_interior")
+region = Rect2(192, 1142, 32, 33)
+
+[sub_resource type="RectangleShape2D" id="Collision_LivingRoom_Bookcase"]
+size = Vector2(38, 25)
+
+[sub_resource type="RectangleShape2D" id="Collision_Kitchen_Cupboards"]
+size = Vector2(27, 15.400002)
+
+[sub_resource type="RectangleShape2D" id="Collision_Kitchen_Plant"]
+size = Vector2(12, 10)
+
+[sub_resource type="RectangleShape2D" id="Collision_Kitchen_Refrigerator"]
+size = Vector2(16, 25)
+
+[sub_resource type="RectangleShape2D" id="Collision_Kitchen_ElectricOven"]
+size = Vector2(16, 11.6923065)
+
+[sub_resource type="RectangleShape2D" id="Collision_Kitchen_Counter"]
+size = Vector2(15.699463, 12.125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ap60n"]
+atlas = ExtResource("2_interior")
+region = Rect2(64, 341, 16, 26)
+
+[sub_resource type="RectangleShape2D" id="Collision_Kitchen_ChairLeft"]
+size = Vector2(12, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2idap"]
+atlas = ExtResource("2_interior")
+region = Rect2(117, 216, 38, 21)
+
+[sub_resource type="RectangleShape2D" id="Collision_LivingRoom_CoffeeTable"]
+size = Vector2(38, 13.999996)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dc68u"]
+atlas = ExtResource("2_interior")
+region = Rect2(3, 674, 43, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvuk3"]
+atlas = ExtResource("2_interior")
+region = Rect2(16, 1157, 48, 24)
+
+[sub_resource type="RectangleShape2D" id="Collision_LivingRoom_Sofa"]
+size = Vector2(44, 12)
+
+[sub_resource type="RectangleShape2D" id="Collision_LivingRoom_Armchair"]
+size = Vector2(28, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctgqc"]
+atlas = ExtResource("2_interior")
+region = Rect2(210, 647, 28, 23)
+
+[sub_resource type="RectangleShape2D" id="Collision_LivingRoom_Television"]
+size = Vector2(28, 8)
+
+[sub_resource type="RectangleShape2D" id="Collision_LivingRoom_FloorLamp"]
+size = Vector2(8, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg1t0"]
+atlas = ExtResource("2_interior")
+region = Rect2(167, 713, 18, 31)
+
+[sub_resource type="RectangleShape2D" id="Collision_LivingRoom_Plant"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgdbu"]
+atlas = ExtResource("2_interior")
+region = Rect2(130, 362, 28, 13)
+
+[sub_resource type="RectangleShape2D" id="Collision_LivingRoom_MediaReceiver"]
+size = Vector2(28, 10)
+
+[sub_resource type="RectangleShape2D" id="Collision_Study_Bookcase"]
+size = Vector2(38, 25.757599)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg87n"]
+atlas = ExtResource("2_interior")
+region = Rect2(181, 254, 24, 18)
+
+[sub_resource type="RectangleShape2D" id="Collision_Entry_Console"]
+size = Vector2(60, 22)
+
+[sub_resource type="RectangleShape2D" id="Collision_Study_Desk"]
+size = Vector2(70, 14)
+
+[sub_resource type="RectangleShape2D" id="Collision_Study_Computer"]
+size = Vector2(55.2, 10)
+
+[sub_resource type="RectangleShape2D" id="Collision_Study_ReadingChair"]
+size = Vector2(16, 7.5)
+
+[sub_resource type="RectangleShape2D" id="Collision_Study_ReadingLamp"]
+size = Vector2(8, 6)
+
+[sub_resource type="RectangleShape2D" id="Collision_Study_GameConsole"]
+size = Vector2(32, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dw2l"]
+atlas = ExtResource("2_interior")
+region = Rect2(17, 617, 14, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar8a6"]
+atlas = ExtResource("2_interior")
+region = Rect2(160, 1065, 32, 19)
+
+[sub_resource type="RectangleShape2D" id="BoundaryVertical"]
+size = Vector2(16, 432)
+
+[sub_resource type="RectangleShape2D" id="BoundaryHorizontal"]
+size = Vector2(672, 16)
+
+[node name="Level" type="Node2D" unique_id=1294302439]
+y_sort_enabled = true
+texture_filter = 1
+script = ExtResource("5_level")
+metadata/_edit_horizontal_guides_ = [32.0, 32.0]
+
+[node name="Tiles" type="Node2D" parent="." unique_id=1011538792]
+
+[node name="Ground" type="TileMapLayer" parent="Tiles" unique_id=2096984335]
+z_index = -20
+texture_filter = 1
+tile_map_data = PackedByteArray("AAABAAMAAAAEAAsAAAABAAQAAAAEAAsAAAABAAUAAAAEAAsAAAABAAYAAAAEAAsAAAABAAcAAAAEAAsAAAABAAgAAAAEAAsAAAABAAkAAAAEAAsAAAABAAoAAAAEAAsAAAABAAsAAAAEAAsAAAABAA4AAAAEAA0AAAABAA8AAAAEAA0AAAABABAAAAAEAA0AAAABABMAAAAEAAsAAAABABQAAAAEAAsAAAABABUAAAAEAAsAAAABABYAAAAEAAsAAAABABcAAAAEAAsAAAABABgAAAAEAAsAAAABABkAAAAEAAsAAAACAAMAAAAEAAsAAAACAAQAAAAEAAsAAAACAAUAAAAEAAsAAAACAAYAAAAEAAsAAAACAAcAAAAEAAsAAAACAAgAAAAEAAsAAAACAAkAAAAEAAsAAAACAAoAAAAEAAsAAAACAAsAAAAEAAsAAAACAA4AAAAEAA0AAAACAA8AAAAEAA0AAAACABAAAAAEAA0AAAACABMAAAAEAAsAAAACABQAAAAEAAsAAAACABUAAAAEAAsAAAACABYAAAAEAAsAAAACABcAAAAEAAsAAAACABgAAAAEAAsAAAACABkAAAAEAAsAAAADAAMAAAAEAAsAAAADAAQAAAAEAAsAAAADAAUAAAAEAAsAAAADAAYAAAAEAAsAAAADAAcAAAAEAAsAAAADAAgAAAAEAAsAAAADAAkAAAAEAAsAAAADAAoAAAAEAAsAAAADAAsAAAAEAAsAAAADAA4AAAAEAA0AAAADAA8AAAAEAA0AAAADABAAAAAEAA0AAAADABMAAAAEAAsAAAADABQAAAAEAAsAAAADABUAAAAEAAsAAAADABYAAAAEAAsAAAADABcAAAAEAAsAAAADABgAAAAEAAsAAAADABkAAAAEAAsAAAAEAAMAAAAEAAsAAAAEAAQAAAAEAAsAAAAEAAUAAAAEAAsAAAAEAAYAAAAEAAsAAAAEAAcAAAAEAAsAAAAEAAgAAAAEAAsAAAAEAAkAAAAEAAsAAAAEAAoAAAAEAAsAAAAEAAsAAAAEAAsAAAAEAA4AAAAEAA0AAAAEAA8AAAAEAA0AAAAEABAAAAAEAA0AAAAEABMAAAAEAAsAAAAEABQAAAAEAAsAAAAEABUAAAAEAAsAAAAEABYAAAAEAAsAAAAEABcAAAAEAAsAAAAEABgAAAAEAAsAAAAEABkAAAAEAAsAAAAFAAMAAAAEAAsAAAAFAAQAAAAEAAsAAAAFAAUAAAAEAAsAAAAFAAYAAAAEAAsAAAAFAAcAAAAEAAsAAAAFAAgAAAAEAAsAAAAFAAkAAAAEAAsAAAAFAAoAAAAEAAsAAAAFAAsAAAAEAAsAAAAFAA4AAAAEAA0AAAAFAA8AAAAEAA0AAAAFABAAAAAEAA0AAAAFABMAAAAEAAsAAAAFABQAAAAEAAsAAAAFABUAAAAEAAsAAAAFABYAAAAEAAsAAAAFABcAAAAEAAsAAAAFABgAAAAEAAsAAAAFABkAAAAEAAsAAAAGAAMAAAAEAAsAAAAGAAQAAAAEAAsAAAAGAAUAAAAEAAsAAAAGAAYAAAAEAAsAAAAGAAcAAAAEAAsAAAAGAAgAAAAEAAsAAAAGAAkAAAAEAAsAAAAGAAoAAAAEAAsAAAAGAAsAAAAEAAsAAAAGAA4AAAAEAA0AAAAGAA8AAAAEAA0AAAAGABAAAAAEAA0AAAAGABMAAAAEAAsAAAAGABQAAAAEAAsAAAAGABUAAAAEAAsAAAAGABYAAAAEAAsAAAAGABcAAAAEAAsAAAAGABgAAAAEAAsAAAAGABkAAAAEAAsAAAAHAAMAAAAEAAsAAAAHAAQAAAAEAAsAAAAHAAUAAAAEAAsAAAAHAAYAAAAEAAsAAAAHAAcAAAAEAAsAAAAHAAgAAAAEAAsAAAAHAAkAAAAEAAsAAAAHAAoAAAAEAAsAAAAHAAsAAAAEAAsAAAAHAA4AAAAEAA0AAAAHAA8AAAAEAA0AAAAHABAAAAAEAA0AAAAHABMAAAAEAAsAAAAHABQAAAAEAAsAAAAHABUAAAAEAAsAAAAHABYAAAAEAAsAAAAHABcAAAAEAAsAAAAHABgAAAAEAAsAAAAHABkAAAAEAAsAAAAIAAMAAAAEAAsAAAAIAAQAAAAEAAsAAAAIAAUAAAAEAAsAAAAIAAYAAAAEAAsAAAAIAAcAAAAEAAsAAAAIAAgAAAAEAAsAAAAIAAkAAAAEAAsAAAAIAAoAAAAEAAsAAAAIAAsAAAAEAAsAAAAIAA4AAAAEAA0AAAAIAA8AAAAEAA0AAAAIABAAAAAEAA0AAAAIABMAAAAEAAsAAAAIABQAAAAEAAsAAAAIABUAAAAEAAsAAAAIABYAAAAEAAsAAAAIABcAAAAEAAsAAAAIABgAAAAEAAsAAAAIABkAAAAEAAsAAAAJAAMAAAAEAAsAAAAJAAQAAAAEAAsAAAAJAAUAAAAEAAsAAAAJAAYAAAAEAAsAAAAJAAcAAAAEAAsAAAAJAAgAAAAEAAsAAAAJAAkAAAAEAAsAAAAJAAoAAAAEAAsAAAAJAAsAAAAEAAsAAAAJAAwAAAAEAA0AAAAJAA0AAAAEAA0AAAAJAA4AAAAEAA0AAAAJAA8AAAAEAA0AAAAJABAAAAAEAA0AAAAJABMAAAAEAAsAAAAJABQAAAAEAAsAAAAJABUAAAAEAAsAAAAJABYAAAAEAAsAAAAJABcAAAAEAAsAAAAJABgAAAAEAAsAAAAJABkAAAAEAAsAAAAKAAMAAAAEAAsAAAAKAAQAAAAEAAsAAAAKAAUAAAAEAAsAAAAKAAYAAAAEAAsAAAAKAAcAAAAEAAsAAAAKAAgAAAAEAAsAAAAKAAkAAAAEAAsAAAAKAAoAAAAEAAsAAAAKAAsAAAAEAAsAAAAKAAwAAAAEAA0AAAAKAA0AAAAEAA0AAAAKAA4AAAAEAA0AAAAKAA8AAAAEAA0AAAAKABAAAAAEAA0AAAAKABMAAAAEAAsAAAAKABQAAAAEAAsAAAAKABUAAAAEAAsAAAAKABYAAAAEAAsAAAAKABcAAAAEAAsAAAAKABgAAAAEAAsAAAAKABkAAAAEAAsAAAALAAMAAAAEAAsAAAALAAQAAAAEAAsAAAALAAUAAAAEAAsAAAALAAYAAAAEAAsAAAALAAcAAAAEAAsAAAALAAgAAAAEAAsAAAALAAkAAAAEAAsAAAALAAoAAAAEAAsAAAALAAsAAAAEAAsAAAALAA4AAAAEAA0AAAALAA8AAAAEAA0AAAALABAAAAAEAA0AAAALABEAAAAEAA0AAAALABIAAAAEAA0AAAALABMAAAAEAAsAAAALABQAAAAEAAsAAAALABUAAAAEAAsAAAALABYAAAAEAAsAAAALABcAAAAEAAsAAAALABgAAAAEAAsAAAALABkAAAAEAAsAAAAMAAMAAAAEAAsAAAAMAAQAAAAEAAsAAAAMAAUAAAAEAAsAAAAMAAYAAAAEAAsAAAAMAAcAAAAEAAsAAAAMAAgAAAAEAAsAAAAMAAkAAAAEAAsAAAAMAAoAAAAEAAsAAAAMAAsAAAAEAAsAAAAMAA4AAAAEAA0AAAAMAA8AAAAEAA0AAAAMABAAAAAEAA0AAAAMABEAAAAEAA0AAAAMABIAAAAEAA0AAAAMABMAAAAEAAsAAAAMABQAAAAEAAsAAAAMABUAAAAEAAsAAAAMABYAAAAEAAsAAAAMABcAAAAEAAsAAAAMABgAAAAEAAsAAAAMABkAAAAEAAsAAAANAA4AAAAEAA0AAAANAA8AAAAEAA0AAAANABAAAAAEAA0AAAANABMAAAAEAAsAAAANABQAAAAEAAsAAAANABUAAAAEAAsAAAANABYAAAAEAAsAAAANABcAAAAEAAsAAAANABgAAAAEAAsAAAANABkAAAAEAAsAAAAOAAMAAAALAAcAAAAOAAQAAAALAAcAAAAOAAUAAAALAAcAAAAOAAYAAAALAAcAAAAOAAcAAAALAAcAAAAOAAgAAAALAAcAAAAOAAkAAAALAAcAAAAOAAoAAAALAAcAAAAOAAsAAAALAAcAAAAOAA4AAAAEAA0AAAAOAA8AAAAEAA0AAAAOABAAAAAEAA0AAAAOABMAAAAEAAsAAAAOABQAAAAEAAsAAAAOABUAAAAEAAsAAAAOABYAAAAEAAsAAAAOABcAAAAEAAsAAAAOABgAAAAEAAsAAAAOABkAAAAEAAsAAAAPAAMAAAALAAcAAAAPAAQAAAALAAcAAAAPAAUAAAALAAcAAAAPAAYAAAALAAcAAAAPAAcAAAALAAcAAAAPAAgAAAALAAcAAAAPAAkAAAALAAcAAAAPAAoAAAALAAcAAAAPAAsAAAALAAcAAAAPAA4AAAAEAA0AAAAPAA8AAAAEAA0AAAAPABAAAAAEAA0AAAAPABMAAAAEAAsAAAAPABQAAAAEAAsAAAAPABUAAAAEAAsAAAAPABYAAAAEAAsAAAAPABcAAAAEAAsAAAAPABgAAAAEAAsAAAAPABkAAAAEAAsAAAAQAAMAAAALAAcAAAAQAAQAAAALAAcAAAAQAAUAAAALAAcAAAAQAAYAAAALAAcAAAAQAAcAAAALAAcAAAAQAAgAAAALAAcAAAAQAAkAAAALAAcAAAAQAAoAAAALAAcAAAAQAAsAAAALAAcAAAAQAA4AAAAEAA0AAAAQAA8AAAAEAA0AAAAQABAAAAAEAA0AAAARAAMAAAALAAcAAAARAAQAAAALAAcAAAARAAUAAAALAAcAAAARAAYAAAALAAcAAAARAAcAAAALAAcAAAARAAgAAAALAAcAAAARAAkAAAALAAcAAAARAAoAAAALAAcAAAARAAsAAAALAAcAAAARAA4AAAAEAA0AAAARAA8AAAAEAA0AAAARABAAAAAEAA0AAAARABMAAAAEAA0AAAARABQAAAAEAA0AAAARABUAAAAEAA0AAAARABYAAAAEAA0AAAARABcAAAAEAA0AAAARABgAAAAEAA0AAAARABkAAAAEAA0AAAASAAMAAAALAAcAAAASAAQAAAALAAcAAAASAAUAAAALAAcAAAASAAYAAAALAAcAAAASAAcAAAALAAcAAAASAAgAAAALAAcAAAASAAkAAAALAAcAAAASAAoAAAALAAcAAAASAAsAAAALAAcAAAASAA4AAAAEAA0AAAASAA8AAAAEAA0AAAASABAAAAAEAA0AAAASABMAAAAEAA0AAAASABQAAAAEAA0AAAASABUAAAAEAA0AAAASABYAAAAEAA0AAAASABcAAAAEAA0AAAASABgAAAAEAA0AAAASABkAAAAEAA0AAAATAAMAAAALAAcAAAATAAQAAAALAAcAAAATAAUAAAALAAcAAAATAAYAAAALAAcAAAATAAcAAAALAAcAAAATAAgAAAALAAcAAAATAAkAAAALAAcAAAATAAoAAAALAAcAAAATAAsAAAALAAcAAAATAA4AAAAEAA0AAAATAA8AAAAEAA0AAAATABAAAAAEAA0AAAATABMAAAAEAA0AAAATABQAAAAEAA0AAAATABUAAAAEAA0AAAATABYAAAAEAA0AAAATABcAAAAEAA0AAAATABgAAAAEAA0AAAATABkAAAAEAA0AAAAUAAMAAAALAAcAAAAUAAQAAAALAAcAAAAUAAUAAAALAAcAAAAUAAYAAAALAAcAAAAUAAcAAAALAAcAAAAUAAgAAAALAAcAAAAUAAkAAAALAAcAAAAUAAoAAAALAAcAAAAUAAsAAAALAAcAAAAUAAwAAAAEAA0AAAAUAA0AAAAEAA0AAAAUAA4AAAAEAA0AAAAUAA8AAAAEAA0AAAAUABAAAAAEAA0AAAAUABEAAAAEAA0AAAAUABIAAAAEAA0AAAAUABMAAAAEAA0AAAAUABQAAAAEAA0AAAAUABUAAAAEAA0AAAAUABYAAAAEAA0AAAAUABcAAAAEAA0AAAAUABgAAAAEAA0AAAAUABkAAAAEAA0AAAAUABoAAAAEAA0AAAAVAAMAAAALAAcAAAAVAAQAAAALAAcAAAAVAAUAAAALAAcAAAAVAAYAAAALAAcAAAAVAAcAAAALAAcAAAAVAAgAAAALAAcAAAAVAAkAAAALAAcAAAAVAAoAAAALAAcAAAAVAAsAAAALAAcAAAAVAAwAAAAEAA0AAAAVAA0AAAAEAA0AAAAVAA4AAAAEAA0AAAAVAA8AAAAEAA0AAAAVABAAAAAEAA0AAAAVABEAAAAEAA0AAAAVABIAAAAEAA0AAAAVABMAAAAEAA0AAAAVABQAAAAEAA0AAAAVABUAAAAEAA0AAAAVABYAAAAEAA0AAAAVABcAAAAEAA0AAAAVABgAAAAEAA0AAAAVABkAAAAEAA0AAAAVABoAAAAEAA0AAAAWAAMAAAALAAcAAAAWAAQAAAALAAcAAAAWAAUAAAALAAcAAAAWAAYAAAALAAcAAAAWAAcAAAALAAcAAAAWAAgAAAALAAcAAAAWAAkAAAALAAcAAAAWAAoAAAALAAcAAAAWAAsAAAALAAcAAAAWAA4AAAAEAA0AAAAWAA8AAAAEAA0AAAAWABAAAAAEAA0AAAAWABMAAAAEAA0AAAAWABQAAAAEAA0AAAAWABUAAAAEAA0AAAAWABYAAAAEAA0AAAAWABcAAAAEAA0AAAAWABgAAAAEAA0AAAAWABkAAAAEAA0AAAAXAAMAAAALAAcAAAAXAAQAAAALAAcAAAAXAAUAAAALAAcAAAAXAAYAAAALAAcAAAAXAAcAAAALAAcAAAAXAAgAAAALAAcAAAAXAAkAAAALAAcAAAAXAAoAAAALAAcAAAAXAAsAAAALAAcAAAAXAA4AAAAEAA0AAAAXAA8AAAAEAA0AAAAXABAAAAAEAA0AAAAXABMAAAAEAA0AAAAXABQAAAAEAA0AAAAXABUAAAAEAA0AAAAXABYAAAAEAA0AAAAXABcAAAAEAA0AAAAXABgAAAAEAA0AAAAXABkAAAAEAA0AAAAYAAMAAAALAAcAAAAYAAQAAAALAAcAAAAYAAUAAAALAAcAAAAYAAYAAAALAAcAAAAYAAcAAAALAAcAAAAYAAgAAAALAAcAAAAYAAkAAAALAAcAAAAYAAoAAAALAAcAAAAYAAsAAAALAAcAAAAYAA4AAAAEAA0AAAAYAA8AAAAEAA0AAAAYABAAAAAEAA0AAAAZAAMAAAALAAcAAAAZAAQAAAALAAcAAAAZAAUAAAALAAcAAAAZAAYAAAALAAcAAAAZAAcAAAALAAcAAAAZAAgAAAALAAcAAAAZAAkAAAALAAcAAAAZAAoAAAALAAcAAAAZAAsAAAALAAcAAAAZAA4AAAAEAA0AAAAZAA8AAAAEAA0AAAAZABAAAAAEAA0AAAAZABMAAAAEAA8AAAAZABQAAAAEAA8AAAAZABUAAAAEAA8AAAAZABYAAAAEAA8AAAAZABcAAAAEAA8AAAAZABgAAAAEAA8AAAAZABkAAAAEAA8AAAAaAA4AAAAEAA0AAAAaAA8AAAAEAA0AAAAaABAAAAAEAA0AAAAaABMAAAAEAA8AAAAaABQAAAAEAA8AAAAaABUAAAAEAA8AAAAaABYAAAAEAA8AAAAaABcAAAAEAA8AAAAaABgAAAAEAA8AAAAaABkAAAAEAA8AAAAbAA4AAAAEAA0AAAAbAA8AAAAEAA0AAAAbABAAAAAEAA0AAAAbABMAAAAEAA8AAAAbABQAAAAEAA8AAAAbABUAAAAEAA8AAAAbABYAAAAEAA8AAAAbABcAAAAEAA8AAAAbABgAAAAEAA8AAAAbABkAAAAEAA8AAAAcAA4AAAAEAA0AAAAcAA8AAAAEAA0AAAAcABAAAAAEAA0AAAAcABEAAAAEAA0AAAAcABIAAAAEAA0AAAAcABMAAAAEAA8AAAAcABQAAAAEAA8AAAAcABUAAAAEAA8AAAAcABYAAAAEAA8AAAAcABcAAAAEAA8AAAAcABgAAAAEAA8AAAAcABkAAAAEAA8AAAAdAA4AAAAEAA0AAAAdAA8AAAAEAA0AAAAdABAAAAAEAA0AAAAdABEAAAAEAA0AAAAdABIAAAAEAA0AAAAdABMAAAAEAA8AAAAdABQAAAAEAA8AAAAdABUAAAAEAA8AAAAdABYAAAAEAA8AAAAdABcAAAAEAA8AAAAdABgAAAAEAA8AAAAdABkAAAAEAA8AAAAeAA4AAAAEAA0AAAAeAA8AAAAEAA0AAAAeABAAAAAEAA0AAAAeABMAAAAEAA8AAAAeABQAAAAEAA8AAAAeABUAAAAEAA8AAAAeABYAAAAEAA8AAAAeABcAAAAEAA8AAAAeABgAAAAEAA8AAAAeABkAAAAEAA8AAAAfAA4AAAAEAA0AAAAfAA8AAAAEAA0AAAAfABAAAAAEAA0AAAAfABMAAAAEAA8AAAAfABQAAAAEAA8AAAAfABUAAAAEAA8AAAAfABYAAAAEAA8AAAAfABcAAAAEAA8AAAAfABgAAAAEAA8AAAAfABkAAAAEAA8AAAAgAA4AAAAEAA0AAAAgAA8AAAAEAA0AAAAgABAAAAAEAA0AAAAgABMAAAAEAA8AAAAgABQAAAAEAA8AAAAgABUAAAAEAA8AAAAgABYAAAAEAA8AAAAgABcAAAAEAA8AAAAgABgAAAAEAA8AAAAgABkAAAAEAA8AAAAhAA4AAAAEAA0AAAAhAA8AAAAEAA0AAAAhABAAAAAEAA0AAAAhABMAAAAEAA8AAAAhABQAAAAEAA8AAAAhABUAAAAEAA8AAAAhABYAAAAEAA8AAAAhABcAAAAEAA8AAAAhABgAAAAEAA8AAAAhABkAAAAEAA8AAAAiAA4AAAAEAA0AAAAiAA8AAAAEAA0AAAAiABAAAAAEAA0AAAAiABMAAAAEAA8AAAAiABQAAAAEAA8AAAAiABUAAAAEAA8AAAAiABYAAAAEAA8AAAAiABcAAAAEAA8AAAAiABgAAAAEAA8AAAAiABkAAAAEAA8AAAAjAA4AAAAEAA0AAAAjAA8AAAAEAA0AAAAjABAAAAAEAA0AAAAjABMAAAAEAA8AAAAjABQAAAAEAA8AAAAjABUAAAAEAA8AAAAjABYAAAAEAA8AAAAjABcAAAAEAA8AAAAjABgAAAAEAA8AAAAjABkAAAAEAA8AAAAkAA4AAAAEAA0AAAAkAA8AAAAEAA0AAAAkABAAAAAEAA0AAAAkABMAAAAEAA8AAAAkABQAAAAEAA8AAAAkABUAAAAEAA8AAAAkABYAAAAEAA8AAAAkABcAAAAEAA8AAAAkABgAAAAEAA8AAAAkABkAAAAEAA8AAAAlAA4AAAAEAA0AAAAlAA8AAAAEAA0AAAAlABAAAAAEAA0AAAAlABMAAAAEAA8AAAAlABQAAAAEAA8AAAAlABUAAAAEAA8AAAAlABYAAAAEAA8AAAAlABcAAAAEAA8AAAAlABgAAAAEAA8AAAAlABkAAAAEAA8AAAAmAA4AAAAEAA0AAAAmAA8AAAAEAA0AAAAmABAAAAAEAA0AAAAmABMAAAAEAA8AAAAmABQAAAAEAA8AAAAmABUAAAAEAA8AAAAmABYAAAAEAA8AAAAmABcAAAAEAA8AAAAmABgAAAAEAA8AAAAmABkAAAAEAA8AAAA=")
+tile_set = SubResource("Tiles_house")
+collision_enabled = false
+
+[node name="Walls" type="TileMapLayer" parent="Tiles" unique_id=1308054801]
+z_index = -15
+texture_filter = 1
+tile_map_data = PackedByteArray("AAABAAEAAAABAAkAAAABAAIAAAABAAoAAAABAAwAAAABAAkAAAABAA0AAAABAAoAAAABABEAAAABAAkAAAABABIAAAABAAoAAAACAAEAAAABAAkAAAACAAIAAAABAAoAAAACAAwAAAABAAkAAAACAA0AAAABAAoAAAACABEAAAABAAkAAAACABIAAAABAAoAAAADAAEAAAABAAkAAAADAAIAAAABAAoAAAADAAwAAAABAAkAAAADAA0AAAABAAoAAAADABEAAAABAAkAAAADABIAAAABAAoAAAAEAAEAAAABAAkAAAAEAAIAAAABAAoAAAAEAAwAAAABAAkAAAAEAA0AAAABAAoAAAAEABEAAAABAAkAAAAEABIAAAABAAoAAAAFAAEAAAABAAkAAAAFAAIAAAABAAoAAAAFAAwAAAABAAkAAAAFAA0AAAABAAoAAAAFABEAAAABAAkAAAAFABIAAAABAAoAAAAGAAEAAAABAAkAAAAGAAIAAAABAAoAAAAGAAwAAAABAAkAAAAGAA0AAAABAAoAAAAGABEAAAABAAkAAAAGABIAAAABAAoAAAAHAAEAAAABAAkAAAAHAAIAAAABAAoAAAAHAAwAAAABAAkAAAAHAA0AAAABAAoAAAAHABEAAAABAAkAAAAHABIAAAABAAoAAAAIAAEAAAABAAkAAAAIAAIAAAABAAoAAAAIAAwAAAABAAkAAAAIAA0AAAABAAoAAAAIABEAAAABAAkAAAAIABIAAAABAAoAAAAJAAEAAAABAAkAAAAJAAIAAAABAAoAAAAJABEAAAABAAkAAAAJABIAAAABAAoAAAAKAAEAAAABAAkAAAAKAAIAAAABAAoAAAAKABEAAAABAAkAAAAKABIAAAABAAoAAAALAAEAAAABAAkAAAALAAIAAAABAAoAAAALAAwAAAABAAkAAAALAA0AAAABAAoAAAAMAAEAAAABAAkAAAAMAAIAAAABAAoAAAAMAAwAAAABAAkAAAAMAA0AAAABAAoAAAANAAwAAAABAAkAAAANAA0AAAABAAoAAAANABEAAAABAAkAAAANABIAAAABAAoAAAAOAAEAAAABAAcAAAAOAAIAAAABAAgAAAAOAAwAAAABAAkAAAAOAA0AAAABAAoAAAAOABEAAAABAAkAAAAOABIAAAABAAoAAAAPAAEAAAABAAcAAAAPAAIAAAABAAgAAAAPAAwAAAABAAkAAAAPAA0AAAABAAoAAAAPABEAAAABAAkAAAAPABIAAAABAAoAAAAQAAEAAAABAAcAAAAQAAIAAAABAAgAAAAQAAwAAAABAAkAAAAQAA0AAAABAAoAAAAQABEAAAABAAkAAAAQABIAAAABAAoAAAARAAEAAAABAAcAAAARAAIAAAABAAgAAAARAAwAAAABAAkAAAARAA0AAAABAAoAAAARABEAAAABAAkAAAARABIAAAABAAoAAAASAAEAAAABAAcAAAASAAIAAAABAAgAAAASAAwAAAABAAkAAAASAA0AAAABAAoAAAASABEAAAABAAkAAAASABIAAAABAAoAAAATAAEAAAABAAcAAAATAAIAAAABAAgAAAATAAwAAAABAAkAAAATAA0AAAABAAoAAAATABEAAAABAAkAAAATABIAAAABAAoAAAAUAAEAAAABAAcAAAAUAAIAAAABAAgAAAAVAAEAAAABAAcAAAAVAAIAAAABAAgAAAAWAAEAAAABAAcAAAAWAAIAAAABAAgAAAAWAAwAAAABAAkAAAAWAA0AAAABAAoAAAAWABEAAAABAAkAAAAWABIAAAABAAoAAAAXAAEAAAABAAcAAAAXAAIAAAABAAgAAAAXAAwAAAABAAkAAAAXAA0AAAABAAoAAAAXABEAAAABAAkAAAAXABIAAAABAAoAAAAYAAEAAAABAAcAAAAYAAIAAAABAAgAAAAYAAwAAAABAAkAAAAYAA0AAAABAAoAAAAYABEAAAABAAkAAAAYABIAAAABAAoAAAAZAAEAAAABAAcAAAAZAAIAAAABAAgAAAAZAAwAAAABAAkAAAAZAA0AAAABAAoAAAAZABEAAAABAAkAAAAZABIAAAABAAoAAAAaAAwAAAABAAkAAAAaAA0AAAABAAoAAAAaABEAAAABAAkAAAAaABIAAAABAAoAAAAbAAwAAAABAAkAAAAbAA0AAAABAAoAAAAbABEAAAABAAkAAAAbABIAAAABAAoAAAAcAAwAAAABAAkAAAAcAA0AAAABAAoAAAAdAAwAAAABAAkAAAAdAA0AAAABAAoAAAAeAAwAAAABAAkAAAAeAA0AAAABAAoAAAAeABEAAAABAAkAAAAeABIAAAABAAoAAAAfAAwAAAABAAkAAAAfAA0AAAABAAoAAAAfABEAAAABAAkAAAAfABIAAAABAAoAAAAgAAwAAAABAAkAAAAgAA0AAAABAAoAAAAgABEAAAABAAkAAAAgABIAAAABAAoAAAAhAAwAAAABAAkAAAAhAA0AAAABAAoAAAAhABEAAAABAAkAAAAhABIAAAABAAoAAAAiAAwAAAABAAkAAAAiAA0AAAABAAoAAAAiABEAAAABAAkAAAAiABIAAAABAAoAAAAjAAwAAAABAAkAAAAjAA0AAAABAAoAAAAjABEAAAABAAkAAAAjABIAAAABAAoAAAAkAAwAAAABAAkAAAAkAA0AAAABAAoAAAAkABEAAAABAAkAAAAkABIAAAABAAoAAAAlAAwAAAABAAkAAAAlAA0AAAABAAoAAAAlABEAAAABAAkAAAAlABIAAAABAAoAAAAmAAwAAAABAAkAAAAmAA0AAAABAAoAAAAmABEAAAABAAkAAAAmABIAAAABAAoAAAA=")
+tile_set = SubResource("Tiles_house")
+
+[node name="OuterWallFrame" type="TileMapLayer" parent="Tiles" unique_id=155399993]
+modulate = Color(0.58, 0.54, 0.5, 1)
+z_index = -15
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAAAAEAAAAEAA0AAAAAAAIAAAAEAA0AAAAAAAMAAAAEAA0AAAAAAAQAAAAEAA0AAAAAAAUAAAAEAA0AAAAAAAYAAAAEAA0AAAAAAAcAAAAEAA0AAAAAAAgAAAAEAA0AAAAAAAkAAAAEAA0AAAAAAAoAAAAEAA0AAAAAAAsAAAAEAA0AAAAAAAwAAAAEAA0AAAAAAA0AAAAEAA0AAAAAAA4AAAAEAA0AAAAAAA8AAAAEAA0AAAAAABAAAAAEAA0AAAAAABEAAAAEAA0AAAAAABIAAAAEAA0AAAAAABMAAAAEAA0AAAAAABQAAAAEAA0AAAAAABUAAAAEAA0AAAAAABYAAAAEAA0AAAAAABcAAAAEAA0AAAAAABgAAAAEAA0AAAAAABkAAAAEAA0AAAAAABoAAAAEAA0AAAABABoAAAAEAA0AAAACABoAAAAEAA0AAAADABoAAAAEAA0AAAAEABoAAAAEAA0AAAAFABoAAAAEAA0AAAAGABoAAAAEAA0AAAAHABoAAAAEAA0AAAAIABoAAAAEAA0AAAAJABoAAAAEAA0AAAAKABoAAAAEAA0AAAALABoAAAAEAA0AAAAMABoAAAAEAA0AAAANAAEAAAAEAA0AAAANAAIAAAAEAA0AAAANAAMAAAAEAA0AAAANAAQAAAAEAA0AAAANAAUAAAAEAA0AAAANAAYAAAAEAA0AAAANAAcAAAAEAA0AAAANAAgAAAAEAA0AAAANAAkAAAAEAA0AAAANAAoAAAAEAA0AAAANAAsAAAAEAA0AAAANABoAAAAEAA0AAAAOABoAAAAEAA0AAAAPABoAAAAEAA0AAAAQABEAAAAEAA0AAAAQABIAAAAEAA0AAAAQABMAAAAEAA0AAAAQABQAAAAEAA0AAAAQABUAAAAEAA0AAAAQABYAAAAEAA0AAAAQABcAAAAEAA0AAAAQABgAAAAEAA0AAAAQABkAAAAEAA0AAAAQABoAAAAEAA0AAAARABoAAAAEAA0AAAASABoAAAAEAA0AAAATABoAAAAEAA0AAAAWABoAAAAEAA0AAAAXABoAAAAEAA0AAAAYABEAAAAEAA0AAAAYABIAAAAEAA0AAAAYABMAAAAEAA0AAAAYABQAAAAEAA0AAAAYABUAAAAEAA0AAAAYABYAAAAEAA0AAAAYABcAAAAEAA0AAAAYABgAAAAEAA0AAAAYABkAAAAEAA0AAAAYABoAAAAEAA0AAAAZABoAAAAEAA0AAAAaAAEAAAAEAA0AAAAaAAIAAAAEAA0AAAAaAAMAAAAEAA0AAAAaAAQAAAAEAA0AAAAaAAUAAAAEAA0AAAAaAAYAAAAEAA0AAAAaAAcAAAAEAA0AAAAaAAgAAAAEAA0AAAAaAAkAAAAEAA0AAAAaAAoAAAAEAA0AAAAaAAsAAAAEAA0AAAAaABoAAAAEAA0AAAAbABoAAAAEAA0AAAAcABoAAAAEAA0AAAAdABoAAAAEAA0AAAAeABoAAAAEAA0AAAAfABoAAAAEAA0AAAAgABoAAAAEAA0AAAAhABoAAAAEAA0AAAAiABoAAAAEAA0AAAAjABoAAAAEAA0AAAAkABoAAAAEAA0AAAAlABoAAAAEAA0AAAAmABoAAAAEAA0AAAAnAAwAAAAEAA0AAAAnAA0AAAAEAA0AAAAnAA4AAAAEAA0AAAAnAA8AAAAEAA0AAAAnABAAAAAEAA0AAAAnABEAAAAEAA0AAAAnABIAAAAEAA0AAAAnABMAAAAEAA0AAAAnABQAAAAEAA0AAAAnABUAAAAEAA0AAAAnABYAAAAEAA0AAAAnABcAAAAEAA0AAAAnABgAAAAEAA0AAAAnABkAAAAEAA0AAAAnABoAAAAEAA0AAAA=")
+tile_set = SubResource("Tiles_house")
+
+[node name="Bedroom" type="Node2D" parent="." unique_id=681206827]
+y_sort_enabled = true
+
+[node name="Bed" type="Sprite2D" parent="Bedroom" unique_id=203604738]
+texture_filter = 1
+position = Vector2(55.414635, 120)
+scale = Vector2(0.9756098, 1)
+texture = SubResource("AtlasTexture_dbbkb")
+centered = false
+offset = Vector2(-24, -64)
+region_rect = Rect2(90, 16, 48, 64)
+
+[node name="SolidBody" type="StaticBody2D" parent="Bedroom/Bed" unique_id=941644608]
+position = Vector2(-24, -64)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Bedroom/Bed/SolidBody" unique_id=2101954082]
+position = Vector2(20, 40)
+shape = SubResource("Collision_Bedroom_Bed")
+
+[node name="BedsideTable" type="Sprite2D" parent="Bedroom" unique_id=436357091]
+texture_filter = 1
+position = Vector2(84.75001, 79.99999)
+scale = Vector2(1.0937501, 1.2307693)
+texture = ExtResource("2_interior")
+centered = false
+offset = Vector2(-8, -13)
+region_enabled = true
+region_rect = Rect2(176, 170, 16, 13)
+
+[node name="SolidBody" type="StaticBody2D" parent="Bedroom/BedsideTable" unique_id=1250699898]
+position = Vector2(-8, -13)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Bedroom/BedsideTable/SolidBody" unique_id=321974570]
+visible = false
+position = Vector2(8.000006, 6.4999976)
+shape = SubResource("Collision_Bedroom_BedsideTable")
+
+[node name="BedsideLamp" type="Sprite2D" parent="Bedroom" unique_id=1354831446]
+texture_filter = 1
+position = Vector2(86.75, 79.99999)
+texture = ExtResource("2_interior")
+centered = false
+offset = Vector2(-8, -26.999992)
+region_enabled = true
+region_rect = Rect2(226, 891, 12, 17)
+
+[node name="SolidBody" type="StaticBody2D" parent="Bedroom/BedsideLamp" unique_id=135344688]
+position = Vector2(-8, -26.999992)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Bedroom/BedsideLamp/SolidBody" unique_id=385090746]
+position = Vector2(6, 15)
+shape = SubResource("Collision_Bedroom_BedsideLamp")
+
+[node name="Wardrobe" type="Sprite2D" parent="Bedroom" unique_id=1987815233]
+texture_filter = 1
+position = Vector2(192, 72)
+texture = ExtResource("2_interior")
+centered = false
+offset = Vector2(-16, -48)
+region_enabled = true
+region_rect = Rect2(112, 768, 32, 48)
+
+[node name="SolidBody" type="StaticBody2D" parent="Bedroom/Wardrobe" unique_id=778654293]
+position = Vector2(-16, -48)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Bedroom/Wardrobe/SolidBody" unique_id=209542952]
+position = Vector2(16, 29)
+shape = SubResource("Collision_Bedroom_Wardrobe")
+
+[node name="Rug" type="Sprite2D" parent="Bedroom" unique_id=865419560]
+z_index = -10
+texture_filter = 1
+position = Vector2(136, 120)
+texture = ExtResource("2_interior")
+centered = false
+region_enabled = true
+region_rect = Rect2(208, 256, 48, 64)
+
+[node name="Dresser" type="Sprite2D" parent="Bedroom" unique_id=1598487998]
+texture_filter = 1
+position = Vector2(72, 184)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_interior")
+centered = false
+offset = Vector2(-32, -32)
+region_enabled = true
+region_rect = Rect2(80, 949, 32, 21)
+
+[node name="SolidBody" type="StaticBody2D" parent="Bedroom/Dresser" unique_id=1557054330]
+position = Vector2(-32, -32)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Bedroom/Dresser/SolidBody" unique_id=271673254]
+position = Vector2(16, 16)
+shape = SubResource("Collision_Bedroom_Dresser")
+
+[node name="BedroomTelevision" type="Sprite2D" parent="Bedroom" unique_id=1127062640]
+z_index = 1
+texture_filter = 1
+position = Vector2(52, 180)
+texture = ExtResource("3_appliances")
+centered = false
+offset = Vector2(-16, -44)
+region_enabled = true
+region_rect = Rect2(80, 128, 32, 24)
+
+[node name="Bookcase3" type="Sprite2D" parent="Bedroom" unique_id=576955512]
+texture_filter = 1
+position = Vector2(120, 313)
+texture = SubResource("AtlasTexture_e6eqm")
+centered = false
+offset = Vector2(-16, -33)
+region_rect = Rect2(160, 1088, 32, 48)
+
+[node name="SolidBody" type="StaticBody2D" parent="Bedroom/Bookcase3" unique_id=1194435908]
+position = Vector2(-16, -33)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Bedroom/Bookcase3/SolidBody" unique_id=1546806540]
+position = Vector2(16, 20.5)
+shape = SubResource("Collision_LivingRoom_Bookcase")
+
+[node name="Kitchen" type="Node2D" parent="." unique_id=516260160]
+y_sort_enabled = true
+
+[node name="Cupboards" type="Sprite2D" parent="Kitchen" unique_id=861954795]
+texture_filter = 1
+position = Vector2(398.22223, 64)
+scale = Vector2(0.8888889, 1.25)
+texture = ExtResource("2_interior")
+centered = false
+offset = Vector2(-16, -32)
+region_enabled = true
+region_rect = Rect2(179, 777, 27, 32)
+
+[node name="SolidBody" type="StaticBody2D" parent="Kitchen/Cupboards" unique_id=170375820]
+position = Vector2(-16, -32)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Kitchen/Cupboards/SolidBody" unique_id=1883337440]
+position = Vector2(13.5, 24.3)
+shape = SubResource("Collision_Kitchen_Cupboards")
+
+[node name="Plant" type="Sprite2D" parent="Kitchen" unique_id=544151073]
+texture_filter = 1
+position = Vector2(232, 192)
+texture = ExtResource("2_interior")
+centered = false
+offset = Vector2(-8, -32)
+region_enabled = true
+region_rect = Rect2(192, 720, 16, 32)
+
+[node name="SolidBody" type="StaticBody2D" parent="Kitchen/Plant" unique_id=1033983575]
+position = Vector2(-8, -32)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Kitchen/Plant/SolidBody" unique_id=107932249]
+position = Vector2(8, 25)
+shape = SubResource("Collision_Kitchen_Plant")
+
+[node name="Plant2" type="Sprite2D" parent="Kitchen" unique_id=1192368431]
+texture_filter = 1
+position = Vector2(408, 192)
+texture = ExtResource("2_interior")
+centered = false
+offset = Vector2(-8, -32)
+region_enabled = true
+region_rect = Rect2(192, 720, 16, 32)
+
+[node name="SolidBody" type="StaticBody2D" parent="Kitchen/Plant2" unique_id=1133325383]
+position = Vector2(-8, -32)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Kitchen/Plant2/SolidBody" unique_id=981697322]
+position = Vector2(8, 25)
+shape = SubResource("Collision_Kitchen_Plant")
+
+[node name="Refrigerator" type="Sprite2D" parent="Kitchen" unique_id=805496883]
+texture_filter = 1
+position = Vector2(248.00002, 63.0645075)
+scale = Vector2(1.5, 1.2903225)
+texture = ExtResource("4_kitchen")
+centered = false
+offset = Vector2(-16, -31)
+region_enabled = true
+region_rect = Rect2(16, 174, 16, 31)
+
+[node name="SolidBody" type="StaticBody2D" parent="Kitchen/Refrigerator" unique_id=199448405]
+position = Vector2(-16, -31)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Kitchen/Refrigerator/SolidBody" unique_id=1470327155]
+position = Vector2(8, 19.5)
+shape = SubResource("Collision_Kitchen_Refrigerator")
+
+[node name="ElectricOven" type="Sprite2D" parent="Kitchen" unique_id=445801095]
+texture_filter = 1
+position = Vector2(356.00003, 67.888885)
+scale = Vector2(1.5, 0.7777776)
+texture = ExtResource("4_kitchen")
+centered = false
+offset = Vector2(-8, -32)
+region_enabled = true
+region_rect = Rect2(32, 179, 16, 27)
+
+[node name="SolidBody" type="StaticBody2D" parent="Kitchen/ElectricOven" unique_id=1793835003]
+position = Vector2(-8, -28.676926)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Kitchen/ElectricOven/SolidBody" unique_id=649864885]
+position = Vector2(8, 17.846153)
+shape = SubResource("Collision_Kitchen_ElectricOven")
+
+[node name="Microwave" type="Sprite2D" parent="Kitchen" unique_id=1238928060]
+z_index = 1
+texture_filter = 1
+position = Vector2(284, 66)
+texture = ExtResource("3_appliances")
+centered = false
+offset = Vector2(-8, -32)
+region_enabled = true
+region_rect = Rect2(64, 48, 16, 16)
+
+[node name="Counter" type="Sprite2D" parent="Kitchen" unique_id=1265811236]
+texture_filter = 1
+position = Vector2(272.00003, 68)
+scale = Vector2(1.5000007, 0.77914953)
+texture = ExtResource("4_kitchen")
+centered = false
+offset = Vector2(-16, -32)
+region_enabled = true
+region_rect = Rect2(48, 211, 16, 27)
+
+[node name="SolidBody" type="StaticBody2D" parent="Kitchen/Counter" unique_id=1792389426]
+position = Vector2(-16, -32)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Kitchen/Counter/SolidBody" unique_id=23758965]
+position = Vector2(8.150269, 20.237469)
+shape = SubResource("Collision_Kitchen_Counter")
+
+[node name="Counter" type="Sprite2D" parent="Kitchen/Counter" unique_id=275346238]
+texture_filter = 1
+position = Vector2(47.999947, -0.15140724)
+scale = Vector2(0.99999833, 0.99647933)
+texture = ExtResource("4_kitchen")
+centered = false
+offset = Vector2(-16, -32)
+region_enabled = true
+region_rect = Rect2(48, 211, 16, 27)
+
+[node name="SolidBody" type="StaticBody2D" parent="Kitchen/Counter/Counter" unique_id=179831792]
+position = Vector2(-16, -32)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Kitchen/Counter/Counter/SolidBody" unique_id=1119272655]
+position = Vector2(8.150269, 20.237469)
+shape = SubResource("Collision_Kitchen_Counter")
+
+[node name="Counter2" type="Sprite2D" parent="Kitchen" unique_id=1814701176]
+texture_filter = 1
+position = Vector2(296, 68)
+scale = Vector2(1.4999995, 0.7791495)
+texture = ExtResource("4_kitchen")
+centered = false
+offset = Vector2(-16, -32)
+region_enabled = true
+region_rect = Rect2(48, 211, 16, 27)
+
+[node name="SolidBody" type="StaticBody2D" parent="Kitchen/Counter2" unique_id=2092780770]
+position = Vector2(-16, -32)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Kitchen/Counter2/SolidBody" unique_id=357807091]
+position = Vector2(8.150269, 20.237469)
+shape = SubResource("Collision_Kitchen_Counter")
+
+[node name="Counter2" type="Sprite2D" parent="Kitchen/Counter2" unique_id=1273232701]
+texture_filter = 1
+position = Vector2(16.000004, 1.9073486e-06)
+scale = Vector2(1.000001, 0.9999996)
+texture = ExtResource("4_kitchen")
+centered = false
+offset = Vector2(-16, -32)
+region_enabled = true
+region_rect = Rect2(48, 211, 16, 27)
+
+[node name="SolidBody" type="StaticBody2D" parent="Kitchen/Counter2/Counter2" unique_id=20247865]
+position = Vector2(-16, -32)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Kitchen/Counter2/Counter2/SolidBody" unique_id=2051762804]
+position = Vector2(8.150269, 20.237469)
+shape = SubResource("Collision_Kitchen_Counter")
+
+[node name="CoffeeMaker" type="Sprite2D" parent="Kitchen" unique_id=2068369378]
+z_index = 1
+texture_filter = 1
+position = Vector2(333, 60)
+texture = ExtResource("3_appliances")
+centered = false
+offset = Vector2(-8, -26)
+region_enabled = true
+region_rect = Rect2(64, 64, 16, 16)
+
+[node name="ChairLeft" type="Sprite2D" parent="Kitchen" unique_id=218913651]
+texture_filter = 1
+position = Vector2(288, 123.69231)
+scale = Vector2(1, 0.9230767)
+texture = SubResource("AtlasTexture_ap60n")
+centered = false
+offset = Vector2(-8, -30)
+region_rect = Rect2(64, 341.15842, 16, 26.704285)
+
+[node name="SolidBody" type="StaticBody2D" parent="Kitchen/ChairLeft" unique_id=1921809943]
+position = Vector2(-8, -30)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Kitchen/ChairLeft/SolidBody" unique_id=1368632168]
+position = Vector2(8, 23)
+shape = SubResource("Collision_Kitchen_ChairLeft")
+
+[node name="ChairLeft2" type="Sprite2D" parent="Kitchen" unique_id=1032459320]
+texture_filter = 1
+position = Vector2(312, 123.69231)
+scale = Vector2(1, 0.9230768)
+texture = SubResource("AtlasTexture_ap60n")
+centered = false
+offset = Vector2(-8, -30)
+region_rect = Rect2(64, 341.15842, 16, 26.704285)
+
+[node name="SolidBody" type="StaticBody2D" parent="Kitchen/ChairLeft2" unique_id=175608548]
+position = Vector2(-8, -30)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Kitchen/ChairLeft2/SolidBody" unique_id=1933076871]
+position = Vector2(8, 23)
+shape = SubResource("Collision_Kitchen_ChairLeft")
+
+[node name="CoffeeTable" type="Sprite2D" parent="Kitchen" unique_id=949431368]
+texture_filter = 1
+position = Vector2(300, 132.6923)
+scale = Vector2(1.4736845, 1.1428562)
+texture = SubResource("AtlasTexture_2idap")
+centered = false
+offset = Vector2(-19, -21)
+region_rect = Rect2(116.69684, 215.72205, 38.462326, 21.492294)
+
+[node name="SolidBody" type="StaticBody2D" parent="Kitchen/CoffeeTable" unique_id=1071224488]
+position = Vector2(-19, -21)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Kitchen/CoffeeTable/SolidBody" unique_id=1246971016]
+position = Vector2(18.999996, 14)
+shape = SubResource("Collision_LivingRoom_CoffeeTable")
+
+[node name="LivingRoom" type="Node2D" parent="." unique_id=579718985]
+y_sort_enabled = true
+
+[node name="Rug" type="Sprite2D" parent="LivingRoom" unique_id=837459030]
+z_index = -10
+texture_filter = 1
+position = Vector2(96, 336)
+scale = Vector2(2.4186049, 2.2857146)
+texture = SubResource("AtlasTexture_dc68u")
+centered = false
+region_rect = Rect2(0, 672, 48, 32)
+
+[node name="Sofa" type="Sprite2D" parent="LivingRoom" unique_id=945608830]
+texture_filter = 1
+position = Vector2(56, 360)
+texture = SubResource("AtlasTexture_dvuk3")
+centered = false
+offset = Vector2(-24, -32)
+region_rect = Rect2(16, 1152, 48, 32)
+
+[node name="SolidBody" type="StaticBody2D" parent="LivingRoom/Sofa" unique_id=1198819156]
+position = Vector2(-24, -32)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="LivingRoom/Sofa/SolidBody" unique_id=1915349712]
+position = Vector2(24, 18)
+shape = SubResource("Collision_LivingRoom_Sofa")
+
+[node name="Armchair" type="Sprite2D" parent="LivingRoom" unique_id=594636898]
+texture_filter = 1
+position = Vector2(232, 408)
+texture = ExtResource("2_interior")
+centered = false
+offset = Vector2(-16, -32)
+region_enabled = true
+region_rect = Rect2(16, 1184, 32, 32)
+
+[node name="SolidBody" type="StaticBody2D" parent="LivingRoom/Armchair" unique_id=226573839]
+position = Vector2(-16, -32)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="LivingRoom/Armchair/SolidBody" unique_id=1248523145]
+position = Vector2(16, 23)
+shape = SubResource("Collision_LivingRoom_Armchair")
+
+[node name="Television" type="Sprite2D" parent="LivingRoom" unique_id=1891137381]
+texture_filter = 1
+position = Vector2(58, 408)
+scale = Vector2(1.4285713, 1)
+texture = SubResource("AtlasTexture_ctgqc")
+centered = false
+offset = Vector2(-16, -32)
+region_rect = Rect2(208, 640, 32, 32)
+
+[node name="SolidBody" type="StaticBody2D" parent="LivingRoom/Television" unique_id=1935492153]
+position = Vector2(-16, -32)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="LivingRoom/Television/SolidBody" unique_id=466789053]
+position = Vector2(13.899996, 19)
+shape = SubResource("Collision_LivingRoom_Television")
+
+[node name="Bookcase" type="Sprite2D" parent="LivingRoom" unique_id=1780547357]
+texture_filter = 1
+position = Vector2(40, 313)
+texture = SubResource("AtlasTexture_e6eqm")
+centered = false
+offset = Vector2(-16, -33)
+region_rect = Rect2(160, 1088, 32, 48)
+
+[node name="SolidBody" type="StaticBody2D" parent="LivingRoom/Bookcase" unique_id=558261673]
+position = Vector2(-16, -33)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="LivingRoom/Bookcase/SolidBody" unique_id=1584114117]
+position = Vector2(16, 20.5)
+shape = SubResource("Collision_LivingRoom_Bookcase")
+
+[node name="Bookcase3" type="Sprite2D" parent="LivingRoom" unique_id=671624841]
+texture_filter = 1
+position = Vector2(152, 65)
+texture = SubResource("AtlasTexture_e6eqm")
+centered = false
+offset = Vector2(-16, -33)
+region_rect = Rect2(160, 1088, 32, 48)
+
+[node name="SolidBody" type="StaticBody2D" parent="LivingRoom/Bookcase3" unique_id=235504205]
+position = Vector2(-16, -33)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="LivingRoom/Bookcase3/SolidBody" unique_id=1154098044]
+position = Vector2(16, 20.5)
+shape = SubResource("Collision_LivingRoom_Bookcase")
+
+[node name="FloorLamp" type="Sprite2D" parent="LivingRoom" unique_id=824006298]
+texture_filter = 1
+position = Vector2(168, 312)
+texture = ExtResource("2_interior")
+centered = false
+offset = Vector2(-6.86499, -34.350098)
+region_enabled = true
+region_rect = Rect2(192.59866, 903.62134, 13.72998, 34.350098)
+
+[node name="SolidBody" type="StaticBody2D" parent="LivingRoom/FloorLamp" unique_id=473557772]
+position = Vector2(-6.86499, -34.350098)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="LivingRoom/FloorLamp/SolidBody" unique_id=1456242074]
+visible = false
+position = Vector2(8, 27)
+shape = SubResource("Collision_LivingRoom_FloorLamp")
+
+[node name="Plant" type="Sprite2D" parent="LivingRoom" unique_id=1583671826]
+texture_filter = 1
+position = Vector2(256, 319)
+texture = SubResource("AtlasTexture_dg1t0")
+centered = false
+offset = Vector2(-16, -31)
+region_rect = Rect2(160, 704, 32, 48)
+
+[node name="SolidBody" type="StaticBody2D" parent="LivingRoom/Plant" unique_id=1912354519]
+position = Vector2(-16, -31)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="LivingRoom/Plant/SolidBody" unique_id=1859531764]
+position = Vector2(9, 23.25)
+shape = SubResource("Collision_LivingRoom_Plant")
+
+[node name="Plant2" type="Sprite2D" parent="LivingRoom" unique_id=1134348256]
+texture_filter = 1
+position = Vector2(432, 231)
+texture = SubResource("AtlasTexture_dg1t0")
+centered = false
+offset = Vector2(-16, -31)
+region_rect = Rect2(160, 704, 32, 48)
+
+[node name="SolidBody" type="StaticBody2D" parent="LivingRoom/Plant2" unique_id=1769608995]
+position = Vector2(-16, -31)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="LivingRoom/Plant2/SolidBody" unique_id=963332509]
+position = Vector2(9, 23.25)
+shape = SubResource("Collision_LivingRoom_Plant")
+
+[node name="MediaReceiver" type="Sprite2D" parent="LivingRoom" unique_id=456115365]
+texture_filter = 1
+position = Vector2(120, 219.6923)
+scale = Vector2(1, 1.2307693)
+texture = SubResource("AtlasTexture_lgdbu")
+centered = false
+offset = Vector2(-16, -16)
+region_rect = Rect2(112, 128, 32, 16)
+
+[node name="SolidBody" type="StaticBody2D" parent="LivingRoom/MediaReceiver" unique_id=653703047]
+position = Vector2(-16, -16)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="LivingRoom/MediaReceiver/SolidBody" unique_id=278322402]
+visible = false
+position = Vector2(16, 9)
+shape = SubResource("Collision_LivingRoom_MediaReceiver")
+
+[node name="ChairLeft" type="Sprite2D" parent="LivingRoom" unique_id=686656263]
+texture_filter = 1
+position = Vector2(136.00002, 368.69226)
+scale = Vector2(1, 0.9230767)
+texture = SubResource("AtlasTexture_ap60n")
+centered = false
+offset = Vector2(-8, -30)
+region_rect = Rect2(64, 341.15842, 16, 26.704285)
+
+[node name="SolidBody" type="StaticBody2D" parent="LivingRoom/ChairLeft" unique_id=1120376478]
+position = Vector2(-8, -30)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="LivingRoom/ChairLeft/SolidBody" unique_id=595653873]
+position = Vector2(8, 23)
+shape = SubResource("Collision_Kitchen_ChairLeft")
+
+[node name="ChairLeft2" type="Sprite2D" parent="LivingRoom" unique_id=1508469891]
+texture_filter = 1
+position = Vector2(160, 368.69226)
+scale = Vector2(1, 0.9230768)
+texture = SubResource("AtlasTexture_ap60n")
+centered = false
+offset = Vector2(-8, -30)
+region_rect = Rect2(64, 341.15842, 16, 26.704285)
+
+[node name="SolidBody" type="StaticBody2D" parent="LivingRoom/ChairLeft2" unique_id=1496551329]
+position = Vector2(-8, -30)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="LivingRoom/ChairLeft2/SolidBody" unique_id=1364681047]
+position = Vector2(8, 23)
+shape = SubResource("Collision_Kitchen_ChairLeft")
+
+[node name="CoffeeTable" type="Sprite2D" parent="LivingRoom" unique_id=1143543779]
+texture_filter = 1
+position = Vector2(148, 377.69226)
+scale = Vector2(1.4736845, 1.1428562)
+texture = SubResource("AtlasTexture_2idap")
+centered = false
+offset = Vector2(-19, -21)
+region_rect = Rect2(116.69684, 215.72205, 38.462326, 21.492294)
+
+[node name="SolidBody" type="StaticBody2D" parent="LivingRoom/CoffeeTable" unique_id=930091230]
+position = Vector2(-19, -21)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="LivingRoom/CoffeeTable/SolidBody" unique_id=762442511]
+position = Vector2(18.999996, 14)
+shape = SubResource("Collision_LivingRoom_CoffeeTable")
+
+[node name="Bookcase4" type="Sprite2D" parent="LivingRoom" unique_id=611074658]
+texture_filter = 1
+position = Vector2(424, 312)
+texture = ExtResource("2_interior")
+centered = false
+offset = Vector2(-16, -34)
+region_enabled = true
+region_rect = Rect2(192, 1094, 32, 34)
+
+[node name="SolidBody" type="StaticBody2D" parent="LivingRoom/Bookcase4" unique_id=2091396039]
+position = Vector2(-16, -34)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="LivingRoom/Bookcase4/SolidBody" unique_id=1289669316]
+position = Vector2(16, 24)
+shape = SubResource("Collision_Study_Bookcase")
+
+[node name="Entry" type="Node2D" parent="." unique_id=1608306913]
+y_sort_enabled = true
+
+[node name="Doormat" type="Sprite2D" parent="Entry" unique_id=1461788276]
+z_index = -10
+texture_filter = 1
+position = Vector2(320, 395)
+scale = Vector2(1.3333334, 1)
+texture = SubResource("AtlasTexture_xg87n")
+centered = false
+region_rect = Rect2(176, 256, 32, 16)
+
+[node name="Console" type="Sprite2D" parent="Entry" unique_id=952044758]
+texture_filter = 1
+position = Vector2(368, 320)
+scale = Vector2(0.5, 1)
+texture = ExtResource("2_interior")
+centered = false
+offset = Vector2(-32, -32)
+region_enabled = true
+region_rect = Rect2(48, 944, 64, 32)
+
+[node name="SolidBody" type="StaticBody2D" parent="Entry/Console" unique_id=1417468546]
+position = Vector2(-32, -32)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Entry/Console/SolidBody" unique_id=1410390174]
+visible = false
+position = Vector2(32, 16)
+shape = SubResource("Collision_Entry_Console")
+
+[node name="Mirror" type="Sprite2D" parent="Entry" unique_id=1355893265]
+z_index = -5
+texture_filter = 1
+position = Vector2(288, 272)
+texture = ExtResource("2_interior")
+centered = false
+region_enabled = true
+region_rect = Rect2(48, 1056, 16, 32)
+
+[node name="Study" type="Node2D" parent="." unique_id=1413718150]
+y_sort_enabled = true
+
+[node name="Desk" type="Sprite2D" parent="Study" unique_id=275503305]
+texture_filter = 1
+position = Vector2(536, 311)
+texture = ExtResource("2_interior")
+centered = false
+offset = Vector2(-32, -23)
+region_enabled = true
+region_rect = Rect2(16, 577, 64, 23)
+
+[node name="SolidBody" type="StaticBody2D" parent="Study/Desk" unique_id=966947589]
+position = Vector2(-32, -23)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Study/Desk/SolidBody" unique_id=2042510974]
+position = Vector2(32, 16)
+shape = SubResource("Collision_Study_Desk")
+
+[node name="Computer" type="Sprite2D" parent="Study" unique_id=1373143008]
+texture_filter = 1
+position = Vector2(590, 320)
+scale = Vector2(0.8333342, 0.99999994)
+texture = ExtResource("2_interior")
+centered = false
+offset = Vector2(-16, -32)
+region_enabled = true
+region_rect = Rect2(160, 640, 48, 32)
+
+[node name="SolidBody" type="StaticBody2D" parent="Study/Computer" unique_id=47565842]
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Study/Computer/SolidBody" unique_id=367473793]
+position = Vector2(8, -5)
+shape = SubResource("Collision_Study_Computer")
+
+[node name="Bookcase" type="Sprite2D" parent="Study" unique_id=1473276917]
+texture_filter = 1
+position = Vector2(80, 313)
+scale = Vector2(1, 0.9705882)
+texture = ExtResource("2_interior")
+centered = false
+offset = Vector2(-16, -34)
+region_enabled = true
+region_rect = Rect2(192, 1094, 32, 34)
+
+[node name="SolidBody" type="StaticBody2D" parent="Study/Bookcase" unique_id=1526191622]
+position = Vector2(-16, -34)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Study/Bookcase/SolidBody" unique_id=858457060]
+position = Vector2(15.999996, 21.121216)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("Collision_Study_Bookcase")
+
+[node name="ReadingChair" type="Sprite2D" parent="Study" unique_id=592711812]
+texture_filter = 1
+position = Vector2(442, 416)
+scale = Vector2(1, 1.0666667)
+texture = ExtResource("2_interior")
+centered = false
+offset = Vector2(-16, -32)
+region_enabled = true
+region_rect = Rect2(48, 1185, 16, 15)
+
+[node name="SolidBody" type="StaticBody2D" parent="Study/ReadingChair" unique_id=733234025]
+position = Vector2(-16, -32)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Study/ReadingChair/SolidBody" unique_id=1346942821]
+position = Vector2(8, 11.25)
+shape = SubResource("Collision_Study_ReadingChair")
+
+[node name="ReadingLamp" type="Sprite2D" parent="Study" unique_id=1811085867]
+texture_filter = 1
+position = Vector2(492, 310)
+texture = ExtResource("2_interior")
+centered = false
+offset = Vector2(-8, -32)
+region_enabled = true
+region_rect = Rect2(208, 904, 15, 33)
+
+[node name="SolidBody" type="StaticBody2D" parent="Study/ReadingLamp" unique_id=1834271315]
+position = Vector2(-8, -32)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Study/ReadingLamp/SolidBody" unique_id=2048539520]
+position = Vector2(8, 27)
+shape = SubResource("Collision_Study_ReadingLamp")
+
+[node name="Rug" type="Sprite2D" parent="Study" unique_id=1692437787]
+z_index = -10
+texture_filter = 1
+position = Vector2(408, 360)
+scale = Vector2(1, 1.0253363)
+texture = ExtResource("2_interior")
+centered = false
+region_enabled = true
+region_rect = Rect2(48, 672, 48, 32)
+
+[node name="GameConsole" type="Sprite2D" parent="Study" unique_id=1813591038]
+z_index = 1
+texture_filter = 1
+position = Vector2(426, 354)
+texture = ExtResource("3_appliances")
+centered = false
+offset = Vector2(-8, -16)
+region_enabled = true
+region_rect = Rect2(81, 128, 30, 21)
+
+[node name="SolidBody" type="StaticBody2D" parent="Study/GameConsole" unique_id=1319904496]
+position = Vector2(-8, -16)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Study/GameConsole/SolidBody" unique_id=279443720]
+position = Vector2(14, 18)
+shape = SubResource("Collision_Study_GameConsole")
+
+[node name="Dresser" type="Sprite2D" parent="Study" unique_id=772239962]
+texture_filter = 1
+position = Vector2(453, 384)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_interior")
+centered = false
+offset = Vector2(-32, -32)
+region_enabled = true
+region_rect = Rect2(80, 949, 32, 21)
+
+[node name="SolidBody" type="StaticBody2D" parent="Study/Dresser" unique_id=1658515625]
+position = Vector2(-32, -32)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Study/Dresser/SolidBody" unique_id=541825092]
+position = Vector2(16, 16)
+shape = SubResource("Collision_Bedroom_Dresser")
+
+[node name="Chair" type="Sprite2D" parent="Study" unique_id=1627744841]
+texture_filter = 1
+position = Vector2(589, 326)
+texture = SubResource("AtlasTexture_0dw2l")
+
+[node name="SolidBody" type="StaticBody2D" parent="Study/Chair" unique_id=2131268833]
+position = Vector2(-16, -31)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Study/Chair/SolidBody" unique_id=598604315]
+position = Vector2(16, 31)
+shape = SubResource("Collision_LivingRoom_Plant")
+
+[node name="Hallway" type="Node2D" parent="." unique_id=572512230]
+y_sort_enabled = true
+
+[node name="HallPicture" type="Sprite2D" parent="Hallway" unique_id=1572958641]
+z_index = -5
+texture_filter = 1
+position = Vector2(544, 200)
+texture = SubResource("AtlasTexture_ar8a6")
+centered = false
+region_rect = Rect2(160, 1056, 32, 32)
+
+[node name="Plant" type="Sprite2D" parent="Hallway" unique_id=448736162]
+texture_filter = 1
+position = Vector2(32, 256)
+texture = SubResource("AtlasTexture_dg1t0")
+centered = false
+offset = Vector2(-16, -31)
+region_rect = Rect2(160, 704, 32, 48)
+
+[node name="SolidBody" type="StaticBody2D" parent="Hallway/Plant" unique_id=2082414944]
+position = Vector2(-16, -31)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Hallway/Plant/SolidBody" unique_id=242494263]
+position = Vector2(9, 23.25)
+shape = SubResource("Collision_LivingRoom_Plant")
+
+[node name="Plant3" type="Sprite2D" parent="Hallway" unique_id=593329239]
+texture_filter = 1
+position = Vector2(254, 231)
+texture = SubResource("AtlasTexture_dg1t0")
+centered = false
+offset = Vector2(-16, -31)
+region_rect = Rect2(160, 704, 32, 48)
+
+[node name="SolidBody" type="StaticBody2D" parent="Hallway/Plant3" unique_id=340530603]
+position = Vector2(-16, -31)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Hallway/Plant3/SolidBody" unique_id=2116933231]
+position = Vector2(9, 23.25)
+shape = SubResource("Collision_LivingRoom_Plant")
+
+[node name="Plant2" type="Sprite2D" parent="Hallway" unique_id=187041907]
+texture_filter = 1
+position = Vector2(624, 255)
+texture = SubResource("AtlasTexture_dg1t0")
+centered = false
+offset = Vector2(-16, -31)
+region_rect = Rect2(160, 704, 32, 48)
+
+[node name="SolidBody" type="StaticBody2D" parent="Hallway/Plant2" unique_id=420735764]
+position = Vector2(-16, -31)
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape2D" parent="Hallway/Plant2/SolidBody" unique_id=514112275]
+position = Vector2(9, 23.25)
+shape = SubResource("Collision_LivingRoom_Plant")
+
+[node name="Entrance" type="Marker2D" parent="." unique_id=661655765]
+position = Vector2(336, 408)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=488923078]
+position = Vector2(320, 224)
+zoom = Vector2(1.35, 1.35)
+
+[node name="LevelBoundary" type="StaticBody2D" parent="." unique_id=1771114931]
+collision_mask = 0
+
+[node name="Left" type="CollisionShape2D" parent="LevelBoundary" unique_id=1131523911]
+position = Vector2(-8, 216)
+shape = SubResource("BoundaryVertical")
+
+[node name="Right" type="CollisionShape2D" parent="LevelBoundary" unique_id=1955198110]
+position = Vector2(648, 216)
+shape = SubResource("BoundaryVertical")
+
+[node name="Top" type="CollisionShape2D" parent="LevelBoundary" unique_id=1904780801]
+position = Vector2(320, -8)
+shape = SubResource("BoundaryHorizontal")
+
+[node name="Bottom" type="CollisionShape2D" parent="LevelBoundary" unique_id=1322254521]
+position = Vector2(320, 440)
+shape = SubResource("BoundaryHorizontal")
+
+[node name="ExteriorGround" type="TileMapLayer" parent="." unique_id=1724002291]
+modulate = Color(0.72, 0.78, 0.72, 1)
+z_index = -30
+texture_filter = 1
+tile_map_data = PackedByteArray("AAD+//7/AAALAAsAAAD+////AAALAAsAAAD+/wAAAAALAAsAAAD+/wEAAAALAAsAAAD+/wIAAAALAAsAAAD+/wMAAAALAAsAAAD+/wQAAAALAAsAAAD+/wUAAAALAAsAAAD+/wYAAAALAAsAAAD+/wcAAAALAAsAAAD+/wgAAAALAAsAAAD+/wkAAAALAAsAAAD+/woAAAALAAsAAAD+/wsAAAALAAsAAAD+/wwAAAALAAsAAAD+/w0AAAALAAsAAAD+/w4AAAALAAsAAAD+/w8AAAALAAsAAAD+/xAAAAALAAsAAAD+/xEAAAALAAsAAAD+/xIAAAALAAsAAAD+/xMAAAALAAsAAAD+/xQAAAALAAsAAAD+/xUAAAALAAsAAAD+/xYAAAALAAsAAAD+/xcAAAALAAsAAAD+/xgAAAALAAsAAAD+/xkAAAALAAsAAAD+/xoAAAALAAsAAAD+/xsAAAALAAsAAAD+/xwAAAALAAsAAAD///7/AAALAAsAAAD/////AAALAAsAAAD//wAAAAALAAsAAAD//wEAAAALAAsAAAD//wIAAAALAAsAAAD//wMAAAALAAsAAAD//wQAAAALAAsAAAD//wUAAAALAAsAAAD//wYAAAALAAsAAAD//wcAAAALAAsAAAD//wgAAAALAAsAAAD//wkAAAALAAsAAAD//woAAAALAAsAAAD//wsAAAALAAsAAAD//wwAAAALAAsAAAD//w0AAAALAAsAAAD//w4AAAALAAsAAAD//w8AAAALAAsAAAD//xAAAAALAAsAAAD//xEAAAALAAsAAAD//xIAAAALAAsAAAD//xMAAAALAAsAAAD//xQAAAALAAsAAAD//xUAAAALAAsAAAD//xYAAAALAAsAAAD//xcAAAALAAsAAAD//xgAAAALAAsAAAD//xkAAAALAAsAAAD//xoAAAALAAsAAAD//xsAAAALAAsAAAD//xwAAAALAAsAAAAAAP7/AAALAAsAAAAAAP//AAALAAsAAAAAABsAAAALAAsAAAAAABwAAAALAAsAAAABAP7/AAALAAsAAAABAP//AAALAAsAAAABABsAAAALAAsAAAABABwAAAALAAsAAAACAP7/AAALAAsAAAACAP//AAALAAsAAAACABsAAAALAAsAAAACABwAAAALAAsAAAADAP7/AAALAAsAAAADAP//AAALAAsAAAADABsAAAALAAsAAAADABwAAAALAAsAAAAEAP7/AAALAAsAAAAEAP//AAALAAsAAAAEABsAAAALAAsAAAAEABwAAAALAAsAAAAFAP7/AAALAAsAAAAFAP//AAALAAsAAAAFABsAAAALAAsAAAAFABwAAAALAAsAAAAGAP7/AAALAAsAAAAGAP//AAALAAsAAAAGABsAAAALAAsAAAAGABwAAAALAAsAAAAHAP7/AAALAAsAAAAHAP//AAALAAsAAAAHABsAAAALAAsAAAAHABwAAAALAAsAAAAIAP7/AAALAAsAAAAIAP//AAALAAsAAAAIABsAAAALAAsAAAAIABwAAAALAAsAAAAJAP7/AAALAAsAAAAJAP//AAALAAsAAAAJABsAAAALAAsAAAAJABwAAAALAAsAAAAKAP7/AAALAAsAAAAKAP//AAALAAsAAAAKABsAAAALAAsAAAAKABwAAAALAAsAAAALAP7/AAALAAsAAAALAP//AAALAAsAAAALABsAAAALAAsAAAALABwAAAALAAsAAAAMAP7/AAALAAsAAAAMAP//AAALAAsAAAAMABsAAAALAAsAAAAMABwAAAALAAsAAAANAP7/AAALAAsAAAANAP//AAALAAsAAAANABsAAAALAAsAAAANABwAAAALAAsAAAAOAP7/AAALAAsAAAAOAP//AAALAAsAAAAOABsAAAALAAsAAAAOABwAAAALAAsAAAAPAP7/AAALAAsAAAAPAP//AAALAAsAAAAPABsAAAALAAsAAAAPABwAAAALAAsAAAAQAP7/AAALAAsAAAAQAP//AAALAAsAAAAQABsAAAALAAsAAAAQABwAAAALAAsAAAARAP7/AAALAAsAAAARAP//AAALAAsAAAARABsAAAALAAsAAAARABwAAAALAAsAAAASAP7/AAALAAsAAAASAP//AAALAAsAAAASABsAAAALAAsAAAASABwAAAALAAsAAAATAP7/AAALAAsAAAATAP//AAALAAsAAAATABsAAAALAAsAAAATABwAAAALAAsAAAAUAP7/AAALAAsAAAAUAP//AAALAAsAAAAUABsAAAALAAsAAAAUABwAAAALAAsAAAAVAP7/AAALAAsAAAAVAP//AAALAAsAAAAVABsAAAALAAsAAAAVABwAAAALAAsAAAAWAP7/AAALAAsAAAAWAP//AAALAAsAAAAWABsAAAALAAsAAAAWABwAAAALAAsAAAAXAP7/AAALAAsAAAAXAP//AAALAAsAAAAXABsAAAALAAsAAAAXABwAAAALAAsAAAAYAP7/AAALAAsAAAAYAP//AAALAAsAAAAYABsAAAALAAsAAAAYABwAAAALAAsAAAAZAP7/AAALAAsAAAAZAP//AAALAAsAAAAZABsAAAALAAsAAAAZABwAAAALAAsAAAAaAP7/AAALAAsAAAAaAP//AAALAAsAAAAaABsAAAALAAsAAAAaABwAAAALAAsAAAAbAP7/AAALAAsAAAAbAP//AAALAAsAAAAbAAAAAAALAAsAAAAbAAEAAAALAAsAAAAbAAIAAAALAAsAAAAbAAMAAAALAAsAAAAbAAQAAAALAAsAAAAbAAUAAAALAAsAAAAbAAYAAAALAAsAAAAbAAcAAAALAAsAAAAbAAgAAAALAAsAAAAbAAkAAAALAAsAAAAbAAoAAAALAAsAAAAbAAsAAAALAAsAAAAbABsAAAALAAsAAAAbABwAAAALAAsAAAAcAP7/AAALAAsAAAAcAP//AAALAAsAAAAcAAAAAAALAAsAAAAcAAEAAAALAAsAAAAcAAIAAAALAAsAAAAcAAMAAAALAAsAAAAcAAQAAAALAAsAAAAcAAUAAAALAAsAAAAcAAYAAAALAAsAAAAcAAcAAAALAAsAAAAcAAgAAAALAAsAAAAcAAkAAAALAAsAAAAcAAoAAAALAAsAAAAcAAsAAAALAAsAAAAcABsAAAALAAsAAAAcABwAAAALAAsAAAAdAP7/AAALAAsAAAAdAP//AAALAAsAAAAdAAAAAAALAAsAAAAdAAEAAAALAAsAAAAdAAIAAAALAAsAAAAdAAMAAAALAAsAAAAdAAQAAAALAAsAAAAdAAUAAAALAAsAAAAdAAYAAAALAAsAAAAdAAcAAAALAAsAAAAdAAgAAAALAAsAAAAdAAkAAAALAAsAAAAdAAoAAAALAAsAAAAdAAsAAAALAAsAAAAdABsAAAALAAsAAAAdABwAAAALAAsAAAAeAP7/AAALAAsAAAAeAP//AAALAAsAAAAeAAAAAAALAAsAAAAeAAEAAAALAAsAAAAeAAIAAAALAAsAAAAeAAMAAAALAAsAAAAeAAQAAAALAAsAAAAeAAUAAAALAAsAAAAeAAYAAAALAAsAAAAeAAcAAAALAAsAAAAeAAgAAAALAAsAAAAeAAkAAAALAAsAAAAeAAoAAAALAAsAAAAeAAsAAAALAAsAAAAeABsAAAALAAsAAAAeABwAAAALAAsAAAAfAP7/AAALAAsAAAAfAP//AAALAAsAAAAfAAAAAAALAAsAAAAfAAEAAAALAAsAAAAfAAIAAAALAAsAAAAfAAMAAAALAAsAAAAfAAQAAAALAAsAAAAfAAUAAAALAAsAAAAfAAYAAAALAAsAAAAfAAcAAAALAAsAAAAfAAgAAAALAAsAAAAfAAkAAAALAAsAAAAfAAoAAAALAAsAAAAfAAsAAAALAAsAAAAfABsAAAALAAsAAAAfABwAAAALAAsAAAAgAP7/AAALAAsAAAAgAP//AAALAAsAAAAgAAAAAAALAAsAAAAgAAEAAAALAAsAAAAgAAIAAAALAAsAAAAgAAMAAAALAAsAAAAgAAQAAAALAAsAAAAgAAUAAAALAAsAAAAgAAYAAAALAAsAAAAgAAcAAAALAAsAAAAgAAgAAAALAAsAAAAgAAkAAAALAAsAAAAgAAoAAAALAAsAAAAgAAsAAAALAAsAAAAgABsAAAALAAsAAAAgABwAAAALAAsAAAAhAP7/AAALAAsAAAAhAP//AAALAAsAAAAhAAAAAAALAAsAAAAhAAEAAAALAAsAAAAhAAIAAAALAAsAAAAhAAMAAAALAAsAAAAhAAQAAAALAAsAAAAhAAUAAAALAAsAAAAhAAYAAAALAAsAAAAhAAcAAAALAAsAAAAhAAgAAAALAAsAAAAhAAkAAAALAAsAAAAhAAoAAAALAAsAAAAhAAsAAAALAAsAAAAhABsAAAALAAsAAAAhABwAAAALAAsAAAAiAP7/AAALAAsAAAAiAP//AAALAAsAAAAiAAAAAAALAAsAAAAiAAEAAAALAAsAAAAiAAIAAAALAAsAAAAiAAMAAAALAAsAAAAiAAQAAAALAAsAAAAiAAUAAAALAAsAAAAiAAYAAAALAAsAAAAiAAcAAAALAAsAAAAiAAgAAAALAAsAAAAiAAkAAAALAAsAAAAiAAoAAAALAAsAAAAiAAsAAAALAAsAAAAiABsAAAALAAsAAAAiABwAAAALAAsAAAAjAP7/AAALAAsAAAAjAP//AAALAAsAAAAjAAAAAAALAAsAAAAjAAEAAAALAAsAAAAjAAIAAAALAAsAAAAjAAMAAAALAAsAAAAjAAQAAAALAAsAAAAjAAUAAAALAAsAAAAjAAYAAAALAAsAAAAjAAcAAAALAAsAAAAjAAgAAAALAAsAAAAjAAkAAAALAAsAAAAjAAoAAAALAAsAAAAjAAsAAAALAAsAAAAjABsAAAALAAsAAAAjABwAAAALAAsAAAAkAP7/AAALAAsAAAAkAP//AAALAAsAAAAkAAAAAAALAAsAAAAkAAEAAAALAAsAAAAkAAIAAAALAAsAAAAkAAMAAAALAAsAAAAkAAQAAAALAAsAAAAkAAUAAAALAAsAAAAkAAYAAAALAAsAAAAkAAcAAAALAAsAAAAkAAgAAAALAAsAAAAkAAkAAAALAAsAAAAkAAoAAAALAAsAAAAkAAsAAAALAAsAAAAkABsAAAALAAsAAAAkABwAAAALAAsAAAAlAP7/AAALAAsAAAAlAP//AAALAAsAAAAlAAAAAAALAAsAAAAlAAEAAAALAAsAAAAlAAIAAAALAAsAAAAlAAMAAAALAAsAAAAlAAQAAAALAAsAAAAlAAUAAAALAAsAAAAlAAYAAAALAAsAAAAlAAcAAAALAAsAAAAlAAgAAAALAAsAAAAlAAkAAAALAAsAAAAlAAoAAAALAAsAAAAlAAsAAAALAAsAAAAlABsAAAALAAsAAAAlABwAAAALAAsAAAAmAP7/AAALAAsAAAAmAP//AAALAAsAAAAmAAAAAAALAAsAAAAmAAEAAAALAAsAAAAmAAIAAAALAAsAAAAmAAMAAAALAAsAAAAmAAQAAAALAAsAAAAmAAUAAAALAAsAAAAmAAYAAAALAAsAAAAmAAcAAAALAAsAAAAmAAgAAAALAAsAAAAmAAkAAAALAAsAAAAmAAoAAAALAAsAAAAmAAsAAAALAAsAAAAmABsAAAALAAsAAAAmABwAAAALAAsAAAAnAP7/AAALAAsAAAAnAP//AAALAAsAAAAnAAAAAAALAAsAAAAnAAEAAAALAAsAAAAnAAIAAAALAAsAAAAnAAMAAAALAAsAAAAnAAQAAAALAAsAAAAnAAUAAAALAAsAAAAnAAYAAAALAAsAAAAnAAcAAAALAAsAAAAnAAgAAAALAAsAAAAnAAkAAAALAAsAAAAnAAoAAAALAAsAAAAnAAsAAAALAAsAAAAnABsAAAALAAsAAAAnABwAAAALAAsAAAAoAP7/AAALAAsAAAAoAP//AAALAAsAAAAoAAAAAAALAAsAAAAoAAEAAAALAAsAAAAoAAIAAAALAAsAAAAoAAMAAAALAAsAAAAoAAQAAAALAAsAAAAoAAUAAAALAAsAAAAoAAYAAAALAAsAAAAoAAcAAAALAAsAAAAoAAgAAAALAAsAAAAoAAkAAAALAAsAAAAoAAoAAAALAAsAAAAoAAsAAAALAAsAAAAoAAwAAAALAAsAAAAoAA0AAAALAAsAAAAoAA4AAAALAAsAAAAoAA8AAAALAAsAAAAoABAAAAALAAsAAAAoABEAAAALAAsAAAAoABIAAAALAAsAAAAoABMAAAALAAsAAAAoABQAAAALAAsAAAAoABUAAAALAAsAAAAoABYAAAALAAsAAAAoABcAAAALAAsAAAAoABgAAAALAAsAAAAoABkAAAALAAsAAAAoABoAAAALAAsAAAAoABsAAAALAAsAAAAoABwAAAALAAsAAAApAP7/AAALAAsAAAApAP//AAALAAsAAAApAAAAAAALAAsAAAApAAEAAAALAAsAAAApAAIAAAALAAsAAAApAAMAAAALAAsAAAApAAQAAAALAAsAAAApAAUAAAALAAsAAAApAAYAAAALAAsAAAApAAcAAAALAAsAAAApAAgAAAALAAsAAAApAAkAAAALAAsAAAApAAoAAAALAAsAAAApAAsAAAALAAsAAAApAAwAAAALAAsAAAApAA0AAAALAAsAAAApAA4AAAALAAsAAAApAA8AAAALAAsAAAApABAAAAALAAsAAAApABEAAAALAAsAAAApABIAAAALAAsAAAApABMAAAALAAsAAAApABQAAAALAAsAAAApABUAAAALAAsAAAApABYAAAALAAsAAAApABcAAAALAAsAAAApABgAAAALAAsAAAApABkAAAALAAsAAAApABoAAAALAAsAAAApABsAAAALAAsAAAApABwAAAALAAsAAAA=")
+tile_set = SubResource("Tiles_house")
+collision_enabled = false
+
+[node name="OutsideBlocks" type="TileMapLayer" parent="." unique_id=771172016]
+modulate = Color(0.78, 0.78, 0.78, 1)
+z_index = -25
+texture_filter = 1
+tile_map_data = PackedByteArray("AAD+/wMAAAALAAUAAAD+/wQAAAALAAUAAAD+/wwAAAALAAUAAAD+/w0AAAALAAUAAAD+/xYAAAALAAUAAAD+/xcAAAALAAUAAAD//wMAAAALAAUAAAD//wQAAAALAAUAAAD//wwAAAALAAUAAAD//w0AAAALAAUAAAD//xYAAAALAAUAAAD//xcAAAALAAUAAAAFAP7/AAALAAUAAAAFAP//AAALAAUAAAAFABsAAAALAAUAAAAFABwAAAALAAUAAAAGAP7/AAALAAUAAAAGAP//AAALAAUAAAAGABsAAAALAAUAAAAGABwAAAALAAUAAAASAP7/AAALAAUAAAASAP//AAALAAUAAAASABsAAAALAAUAAAASABwAAAALAAUAAAATAP7/AAALAAUAAAATAP//AAALAAUAAAATABsAAAALAAUAAAATABwAAAALAAUAAAAfAP7/AAALAAUAAAAfAP//AAALAAUAAAAfABsAAAALAAUAAAAfABwAAAALAAUAAAAgAP7/AAALAAUAAAAgAP//AAALAAUAAAAgABsAAAALAAUAAAAgABwAAAALAAUAAAAoAAMAAAALAAUAAAAoAAQAAAALAAUAAAAoAAwAAAALAAUAAAAoAA0AAAALAAUAAAAoABYAAAALAAUAAAAoABcAAAALAAUAAAApAAMAAAALAAUAAAApAAQAAAALAAUAAAApAAwAAAALAAUAAAApAA0AAAALAAUAAAApABYAAAALAAUAAAApABcAAAALAAUAAAA=")
+tile_set = SubResource("Tiles_house")
+collision_enabled = false
