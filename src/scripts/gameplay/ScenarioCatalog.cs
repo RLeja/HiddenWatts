@@ -11,6 +11,11 @@ namespace HiddenWatts.Scripts.Gameplay;
 public static class ScenarioCatalog
 {
     private static IReadOnlyList<ScenarioData> scenarios = Array.Empty<ScenarioData>();
+    private static readonly Dictionary<string, string> lastRandomCases = new();
+
+    public static IReadOnlyList<ScenarioData> Scenarios => scenarios;
+
+    public static IReadOnlyList<LevelData> Levels { get; private set; } = Array.Empty<LevelData>();
 
     public static ScenarioData SelectedScenario { get; private set; }
 
@@ -35,7 +40,75 @@ public static class ScenarioCatalog
 
     public static IReadOnlyList<ScenarioData> ReadScenarios(string json)
     {
-        var loadedScenarios = JsonSerializer.Deserialize<List<ScenarioData>>(json);
+        using JsonDocument document = JsonDocument.Parse(json);
+        List<ScenarioData> loadedScenarios;
+
+        if (document.RootElement.ValueKind == JsonValueKind.Array)
+        {
+            loadedScenarios = JsonSerializer.Deserialize<List<ScenarioData>>(json);
+        }
+        else
+        {
+            CampaignData campaign = JsonSerializer.Deserialize<CampaignData>(json)
+                ?? throw new InvalidDataException("Campaign data is missing.");
+            Require(campaign.Levels.Count > 0, "At least one level is required.");
+            Require(campaign.Levels.Select(level => level.Id).Distinct().Count() == campaign.Levels.Count, "Level IDs must be unique.");
+            Levels = campaign.Levels.OrderBy(level => level.Number).ToArray();
+            loadedScenarios = new List<ScenarioData>();
+
+            foreach (LevelData level in Levels)
+            {
+                Require(!string.IsNullOrWhiteSpace(level.Id) && level.Number > 0, "Levels need an ID and positive number.");
+                Require(double.IsFinite(level.ScoreMultiplier) && level.ScoreMultiplier > 0, "Score multipliers must be positive.");
+                Require(level.Cases.Count > 0, $"{level.Id} needs cases.");
+                Require(level.Electronics.Select(device => device.Id).Distinct().Count() == level.Electronics.Count, $"Duplicate electronic in {level.Id}.");
+
+                foreach (ElectronicData device in level.Electronics)
+                {
+                    Require(device.Situations.Count > 0 && device.Situations.Any(state => state.Id == "Normal"), $"{device.Id} needs a Normal situation.");
+                    Require(device.Situations.Select(state => state.Id).Distinct().Count() == device.Situations.Count, $"Duplicate situation for {device.Id}.");
+
+                    foreach (SituationData state in device.Situations)
+                    {
+                        ValidateAppliance(Resolve(device, state), $"{level.Id}/{device.Id}/{state.Id}: ");
+                    }
+                }
+
+                for (int index = 0; index < level.Cases.Count; index++)
+                {
+                    CaseData item = level.Cases[index];
+                    Require(item.Situations.Keys.All(id => level.Electronics.Any(device => device.Id == id)), $"{item.Id} references an unknown electronic.");
+                    var appliances = new List<ApplianceData>();
+
+                    foreach (ElectronicData device in level.Electronics)
+                    {
+                        string stateId = item.Situations.GetValueOrDefault(device.Id, "Normal");
+                        SituationData state = device.Situations.FirstOrDefault(value => value.Id == stateId)
+                            ?? throw new InvalidDataException($"{item.Id}: unknown situation {device.Id}/{stateId}.");
+                        appliances.Add(Resolve(device, state));
+                    }
+                    loadedScenarios.Add(new ScenarioData
+                    {
+                        Id = item.Id,
+                        Number = index + 1,
+                        Title = item.Title,
+                        LevelId = level.Id,
+                        LevelNumber = level.Number,
+                        LevelName = level.Name,
+                        LevelScene = level.Scene,
+                        Difficulty = level.Difficulty,
+                        ScoreMultiplier = level.ScoreMultiplier,
+                        Summary = item.Summary,
+                        Brief = item.Brief,
+                        InspectionBudget = level.InspectionBudget,
+                        RequiredFindings = level.RequiredFindings,
+                        PricePerKwh = level.PricePerKwh,
+                        EmissionsPerKwh = level.EmissionsPerKwh,
+                        Appliances = appliances
+                    });
+                }
+            }
+        }
 
         if (loadedScenarios == null || loadedScenarios.Count == 0)
         {
@@ -52,31 +125,65 @@ public static class ScenarioCatalog
         return loadedScenarios;
     }
 
-    public static ScenarioData SelectRandomScenario()
+    private static ApplianceData Resolve(ElectronicData device, SituationData state)
     {
-        if (scenarios.Count == 0)
+        return new ApplianceData
         {
-            throw new InvalidOperationException("Load the scenario catalog before selecting a case.");
-        }
-        List<ScenarioData> choices = scenarios.Where(scenario => scenario.Id != SelectedScenario?.Id).ToList();
+            Id = device.Id,
+            Name = device.Name,
+            Room = device.Room,
+            NodePath = device.NodePath,
+            Observation = state.Observation,
+            PreInspectionHint = state.PreInspectionHint,
+            Evidence = state.Evidence,
+            MajorProblem = state.MajorProblem,
+            DailySavingsKwh = state.DailySavingsKwh,
+            Usage = state.Usage,
+            Actions = state.Actions
+        };
+    }
+
+    public static ScenarioData SelectRandomScenario(string levelId = null)
+    {
+        levelId ??= SelectedScenario?.LevelId ?? scenarios.First().LevelId;
+        string previousId = lastRandomCases.GetValueOrDefault(levelId);
+        List<ScenarioData> choices = scenarios.Where(scenario => scenario.LevelId == levelId && scenario.Id != previousId && scenario.Id != SelectedScenario?.Id).ToList();
 
         if (choices.Count == 0)
         {
-            choices = scenarios.ToList();
+            choices = scenarios.Where(scenario => scenario.LevelId == levelId).ToList();
         }
         SelectedScenario = choices[Random.Shared.Next(choices.Count)];
+        lastRandomCases[levelId] = SelectedScenario.Id;
+        return SelectedScenario;
+    }
+
+    public static bool HasNextLevel => scenarios.Any(item => item.LevelNumber > GetSelectedScenario().LevelNumber);
+
+    public static ScenarioData SelectNextLevel()
+    {
+        int next = GetSelectedScenario().LevelNumber + 1;
+        return SelectRandomScenario(scenarios.First(item => item.LevelNumber == next).LevelId);
+    }
+
+    public static ScenarioData SelectScenario(string id)
+    {
+        SelectedScenario = scenarios.FirstOrDefault(scenario => scenario.Id == id)
+            ?? throw new ArgumentException($"Unknown case: {id}", nameof(id));
         return SelectedScenario;
     }
 
     public static ScenarioData GetSelectedScenario()
     {
-        return SelectedScenario ?? SelectRandomScenario();
+        return SelectedScenario ?? SelectScenario(scenarios.First().Id);
     }
 
     private static void ValidateScenario(ScenarioData scenario)
     {
         string context = $"Case '{scenario.Id}': ";
         Require(!string.IsNullOrWhiteSpace(scenario.Title), context + "Title is required.");
+        Require(!string.IsNullOrWhiteSpace(scenario.LevelName), context + "LevelName is required.");
+        Require(!string.IsNullOrWhiteSpace(scenario.LevelScene) && scenario.LevelScene.StartsWith("res://scenes/levels/") && scenario.LevelScene.EndsWith(".tscn"), context + "LevelScene must reference a household scene.");
         Require(!string.IsNullOrWhiteSpace(scenario.Brief), context + "Brief is required.");
         Require(scenario.Number > 0, context + "Number must be positive.");
         Require(scenario.Appliances != null && scenario.Appliances.Count > 0, context + "At least one appliance is required.");

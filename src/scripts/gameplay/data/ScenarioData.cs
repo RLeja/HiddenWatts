@@ -10,6 +10,18 @@ public sealed class ScenarioData
 
     public string Title { get; init; } = "";
 
+    public string LevelId { get; init; } = "";
+
+    public int LevelNumber { get; init; } = 1;
+
+    public string Difficulty { get; init; } = "Standard";
+
+    public double ScoreMultiplier { get; init; } = 1;
+
+    public string LevelName { get; init; } = "Family house";
+
+    public string LevelScene { get; init; } = "res://scenes/levels/house.tscn";
+
     public string Summary { get; init; } = "";
 
     public string Brief { get; init; } = "";

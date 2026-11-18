@@ -2,11 +2,11 @@
 
 A single-player 2D puzzle and deduction game by Rolands Leja (rl23030). Investigate an unusually high electricity bill, compare appliance usage with household habits, and choose fixes for the biggest sources of waste.
 
-## Playable Prototype I
+## Playable Prototype II
 
 ### Play on Windows
 
-1. [Download the Windows build](https://github.com/RLeja/HiddenWatts/releases/latest/download/HiddenWatts-Prototype-I-Windows-x64.zip).
+1. [Download the Windows build](https://github.com/RLeja/HiddenWatts/releases/download/prototype-ii/HiddenWatts-Prototype-II-Windows-x64.zip).
 2. Extract the entire ZIP into a folder.
 3. Double-click **HiddenWatts.exe**.
 
@@ -14,8 +14,8 @@ Players do **not** need Godot, Visual Studio, the .NET SDK or a separate .NET in
 
 The game targets Windows 10/11 on Intel or AMD 64-bit PCs.
 
-- [Prototype I presentation (PDF)](docs/presentation/HiddenWatts-Prototype-I.pdf)
-- [Editable presentation (PowerPoint)](docs/presentation/HiddenWatts-Prototype-I.pptx)
+- [Prototype II presentation (PDF)](docs/presentation/HiddenWatts-Prototype-II-Updated.pdf)
+- [Editable presentation (PowerPoint)](docs/presentation/HiddenWatts-Prototype-II-Updated.pptx)
 - [Scenario data](src/data/scenarios.json)
 
 ## Controls
@@ -31,26 +31,32 @@ The game targets Windows 10/11 on Intel or AMD 64-bit PCs.
 
 ## Short demo walkthrough
 
-1. Enter the household and approach an appliance with a glowing outline.
-2. Press E to read its observation and **First impression**. This costs nothing. Visit other devices to compare clues before deciding where to inspect.
-3. Spend an inspection to reveal wattage, operating time and recent history.
-4. Compare the evidence with the household routine and choose an action in **Take action**.
-5. Find and fix **three major problems** within **six detailed inspections**.
-6. Review the score and estimated monthly electricity, money and emissions savings.
+1. Choose a household and leave **Random situation** selected, or choose a specific case.
+2. Select **Begin investigation** and read the situation briefing, then enter the household.
+3. Approach a highlighted appliance and press **E**. Its observation and **First impression** are free.
+4. Spend an inspection to reveal wattage, operating time and recent history.
+5. Compare the evidence with the household routine and choose a corrective action in **Take action**.
+6. Find the required major problems within the inspection budget, then review your medal, score and estimated monthly savings.
 
-Saved readings are free to revisit. After all inspections are used, the player can still act on inspected devices or close the investigation through the notes page. A restart keeps the current case. Returning to the menu selects a different case.
+Saved readings are free to revisit. After using all inspections, you can still act on inspected devices or close the investigation through case notes. **Retry** keeps the same case. **New case** selects another case in that household. **Next home** advances to the next difficulty after solving a case.
 
 ## Working features
 
-- Furnished house, animated character movement, furniture collisions and house boundaries
-- Eleven appliances with local E interactions
-- Free case-specific observations before committing an inspection
-- Readings, seven-day usage charts, household history and corrective actions
-- Collected evidence notes, inspection limits and score penalties
-- Results with estimated savings, pause, restart and menu navigation
-- Three complete cases loaded from JSON: **After hours**, **Empty rooms**, and **After the guests**
+- Four furnished households with animated movement, furniture collisions, a walkable garden patio and wall occlusion
+- Twenty authored cases loaded from JSON, with five cases per household and seven to eleven interactive electronics per map
+- Random case assignment with an entry briefing, plus manual case selection
+- Free observations, detailed readings, seven-day usage charts and corrective actions
+- Medals, personal bests and completed-household markers saved locally between sessions
+- A household counts as completed after solving one of its cases; the menu also shows individual case completion counts
 
-The same appliance can be normal in one case and wasteful in another. Cases keep their clues, readings and correct actions together.
+| Household | Difficulty | Inspections | Required problems | Score multiplier |
+| --- | --- | --- | --- | --- |
+| Garden Home | Easy | 6 | 2 | x1 |
+| Corner Apartment | Medium | 6 | 3 | x1.25 |
+| Terrace House | Hard | 5 | 3 | x1.5 |
+| Main House | Expert | 5 | 4 | x2 |
+
+All four households are available from the menu. A device can behave normally in one case and waste electricity in another. Random assignment chooses a complete case, keeping its clues, readings and correct actions consistent. Personal records persist, but an investigation in progress is not saved.
 
 ## Social good integration
 
@@ -58,4 +64,6 @@ The core puzzle asks the player to identify avoidable electricity use and select
 
 The game uses `kWh = watts / 1000 * hours`. Results estimate 30 days of savings using each case's electricity price and emissions factor. Current cases use EUR 0.25/kWh and 0.20 kg CO2/kWh. These are illustrative game assumptions, not measured household savings or a verified environmental assessment.
 
-Scoring awards 100 points per major problem resolved and 10 points per unused inspection after resolving a problem. Each incorrect action costs 50 points and inspecting a non-major device costs 10 points. Scores cannot fall below zero.
+Scoring awards 100 points per major problem and 20 per unused inspection after resolving a problem. A clean solved case earns another 50 points. Incorrect actions cost 50 and non-major inspections cost 10 before the household multiplier. Gold requires at least 95% of the maximum score with no wrong actions, Silver requires 75%, and other solved cases earn Bronze. Scores cannot fall below zero.
+
+Records save locally in Godot's `user://progress.json`. Savings are separate from the score.

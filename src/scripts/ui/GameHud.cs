@@ -30,6 +30,8 @@ public partial class GameHud : Control
     public event Action RestartRequested;
     public event Action MenuRequested;
     public event Action FinishRequested;
+    public event Action NewCaseRequested;
+    public event Action NextLevelRequested;
 
     public CasePanel OpenPanel { get; private set; } = CasePanel.None;
 
@@ -221,6 +223,28 @@ public partial class GameHud : Control
     {
         OpenPanel = CasePanel.None;
         modal.Visible = false;
+    }
+
+    public void ShowBriefing(HouseholdCase session)
+    {
+        ScenarioData scenario = session.Scenario;
+        Open(CasePanel.Briefing, scenario.LevelName + " / " + scenario.Difficulty);
+        var situation = UiKit.Text(scenario.CaseLabel, 23);
+        situation.Name = "SituationTitle";
+        body.AddChild(situation);
+        body.AddChild(UiKit.Text(scenario.Summary, 18));
+        body.AddChild(UiKit.Text(scenario.Brief, 17));
+        body.AddChild(new HSeparator());
+        body.AddChild(UiKit.Text($"Find {scenario.RequiredFindings} major problems with {scenario.InspectionBudget} inspections.", 18));
+        body.AddChild(UiKit.Text("First impressions are free. Compare devices before spending an inspection.\nWASD / arrows to move. E to examine. N to review the case.", 15));
+        var progress = UiKit.Text(ProgressStore.CompletionSummary, 14);
+        progress.Name = "CampaignProgress";
+        body.AddChild(progress);
+        var enter = UiKit.Button("Enter household", () => CloseRequested?.Invoke());
+        enter.Name = "EnterHousehold";
+        enter.SizeFlagsHorizontal = SizeFlags.ExpandFill;
+        footer.AddChild(enter);
+        enter.GrabFocus();
     }
 
     public void ShowDevice(HouseholdCase session, int selected, string feedback = "")
@@ -431,7 +455,10 @@ public partial class GameHud : Control
     {
         ScenarioData scenario = session.Scenario;
         Open(CasePanel.Results, session.Solved ? "Case solved" : "Investigation closed");
-        body.AddChild(UiKit.Text($"{result.Score} points", 30));
+        body.AddChild(UiKit.Text($"{result.Medal} / {result.Score} of {result.MaximumScore} points", 30));
+        body.AddChild(UiKit.Text($"{scenario.LevelName} / {scenario.Difficulty} / x{scenario.ScoreMultiplier:0.##} score", 15));
+        body.AddChild(UiKit.Text(ProgressStore.CompletionSummary, 16));
+        body.AddChild(UiKit.Text(result.IsNewBest ? "New personal best!" : $"Personal best: {result.PreviousBest} points", 16));
         body.AddChild(UiKit.Text($"{result.Correct}/{scenario.RequiredFindings} major problems resolved / {result.InspectionsUsed}/{scenario.InspectionBudget} inspections used\nIncorrect actions: {result.Wrong}"));
         body.AddChild(new HSeparator());
         body.AddChild(UiKit.Text("Estimated monthly savings", 20));
@@ -443,15 +470,31 @@ public partial class GameHud : Control
             string verdict = session.Resolved.Contains(appliance.Id) ? "RESOLVED" : "MISSED";
             body.AddChild(UiKit.Text($"{verdict} / {appliance.Name}\n{appliance.CorrectAction.Text}", 13));
         }
-        body.AddChild(UiKit.Text($"+{HouseholdCase.PointsPerProblem} per major problem resolved, +{HouseholdCase.UnusedInspectionBonus} per unused inspection after resolving a problem; -{HouseholdCase.WrongActionPenalty} per incorrect action, -{HouseholdCase.UnhelpfulInspectionPenalty} per inspection of a non-major device. Score cannot fall below zero.", 11));
-        AddResultButtons();
+        body.AddChild(UiKit.Text($"+{HouseholdCase.PointsPerProblem} per major problem resolved, +{HouseholdCase.UnusedInspectionBonus} per unused inspection after resolving a problem; -{HouseholdCase.WrongActionPenalty} per incorrect action, -{HouseholdCase.UnhelpfulInspectionPenalty} per inspection of a non-major device. Clean solved cases earn +50 before the level multiplier. Gold: 95% with no wrong actions; Silver: 75%. Score cannot fall below zero.", 11));
+        body.AddChild(new HSeparator());
+        body.AddChild(UiKit.Text(ProgressStore.CompletionSummary, 17));
+        var completed = UiKit.Text(string.Join("\n", ScenarioCatalog.Levels.Select(level =>
+            $"{(ProgressStore.IsLevelCompleted(level.Id) ? "Completed" : "Not completed")} / {level.Name}")), 14);
+        completed.Name = "CompletedLevels";
+        body.AddChild(completed);
+        AddResultButtons(session.Solved);
     }
 
-    private void AddResultButtons()
+    private void AddResultButtons(bool solved)
     {
-        var retry = UiKit.Button("Investigate again", () => RestartRequested?.Invoke());
+        var retry = UiKit.Button("Retry", () => RestartRequested?.Invoke());
         retry.SizeFlagsHorizontal = SizeFlags.ExpandFill;
         footer.AddChild(retry);
+        var another = UiKit.Button("New case", () => NewCaseRequested?.Invoke());
+        another.SizeFlagsHorizontal = SizeFlags.ExpandFill;
+        footer.AddChild(another);
+
+        if (solved && ScenarioCatalog.HasNextLevel)
+        {
+            var next = UiKit.Button("Next home", () => NextLevelRequested?.Invoke());
+            next.SizeFlagsHorizontal = SizeFlags.ExpandFill;
+            footer.AddChild(next);
+        }
         var menu = UiKit.Button("Main menu", () => MenuRequested?.Invoke());
         menu.SizeFlagsHorizontal = SizeFlags.ExpandFill;
         footer.AddChild(menu);

@@ -15,6 +15,8 @@ public partial class Investigation : Node
 	private Sprite2D[] devices;
 	private ApplianceIndicator[] indicators;
 	private SubViewport world;
+	private HiddenWatts.Scripts.Levels.HouseLevel household;
+	private Camera2D followCamera;
 	private SubViewportContainer viewportContainer;
 	private int selectedDeviceIndex = -1;
 	private int nearbyDeviceIndex = -1;
@@ -31,27 +33,58 @@ public partial class Investigation : Node
 		ConnectInterfaceEvents();
 		ActivatePlayerCamera();
 		hud.RefreshStatus(currentCase);
-		hud.Message($"Find {currentCase.Scenario.RequiredFindings} major problems. [N] opens your case file.");
+		player.SetMovementEnabled(false);
+		hud.ShowBriefing(currentCase);
 	}
 
 	private void FindSceneNodes()
 	{
 		viewportContainer = GetNode<SubViewportContainer>("Control/SubViewportContainer");
 		world = viewportContainer.GetNode<SubViewport>("SubViewport");
-		var level = world.GetNode<Node2D>("Level");
+		Node2D level = LoadHousehold();
 		player = level.GetNode<Player>("Player");
 		hud = GetNode<GameHud>("Interface/GameHud");
-		devices = new Sprite2D[currentCase.Appliances.Count];
+		devices = ElectronicDevice.ResolveAll(level, currentCase.Appliances);
+	}
 
-		for (int index = 0; index < devices.Length; index++)
+	private Node2D LoadHousehold()
+	{
+		Node2D original = world.GetNode<Node2D>("Level");
+		Player investigator = original.GetNode<Player>("Player");
+		var level = GD.Load<PackedScene>(currentCase.Scenario.LevelScene).Instantiate<HiddenWatts.Scripts.Levels.HouseLevel>();
+		ElectronicDevice.ResolveAll(level, currentCase.Appliances);
+		investigator.Reparent(level, false);
+		world.RemoveChild(original);
+		original.QueueFree();
+		level.Name = "Level";
+		world.AddChild(level);
+		investigator.Position = level.SpawnPosition - investigator.GetNode<CollisionShape2D>("Collider").Position;
+		Camera2D camera = investigator.GetNode<Camera2D>("Camera2D");
+		camera.Position = investigator.GetNode<CollisionShape2D>("Collider").Position;
+		household = level;
+		followCamera = camera;
+		world.SizeChanged += ConfigureCameraLimits;
+		ConfigureCameraLimits();
+		return level;
+	}
+
+	private void ConfigureCameraLimits()
+	{
+		Rect2 bounds = household.Bounds.Grow(24);
+		Vector2 visible = (Vector2)world.Size / followCamera.Zoom;
+		Vector2 size = new Vector2(Mathf.Max(bounds.Size.X, visible.X), Mathf.Max(bounds.Size.Y, visible.Y));
+		Rect2 limits = new Rect2(bounds.GetCenter() - size / 2, size);
+		followCamera.LimitLeft = Mathf.FloorToInt(limits.Position.X);
+		followCamera.LimitTop = Mathf.FloorToInt(limits.Position.Y);
+		followCamera.LimitRight = Mathf.CeilToInt(limits.End.X);
+		followCamera.LimitBottom = Mathf.CeilToInt(limits.End.Y);
+	}
+
+	public override void _ExitTree()
+	{
+		if (GodotObject.IsInstanceValid(world))
 		{
-			ApplianceData appliance = currentCase.Appliances[index];
-			devices[index] = level.GetNodeOrNull<Sprite2D>(appliance.NodePath);
-
-			if (devices[index] == null)
-			{
-				throw new InvalidOperationException($"Case '{currentCase.Scenario.Id}' references a missing appliance: {appliance.NodePath}");
-			}
+			world.SizeChanged -= ConfigureCameraLimits;
 		}
 	}
 
@@ -82,6 +115,16 @@ public partial class Investigation : Node
 		hud.NotesRequested += OpenNotes;
 		hud.ResumeRequested += ClosePanel;
 		hud.RestartRequested += RestartCase;
+		hud.NewCaseRequested += () =>
+		{
+			ScenarioCatalog.SelectRandomScenario();
+			RestartCase();
+		};
+		hud.NextLevelRequested += () =>
+		{
+			ScenarioCatalog.SelectNextLevel();
+			RestartCase();
+		};
 		hud.MenuRequested += ReturnToMenu;
 		hud.FinishRequested += SubmitCase;
 	}
@@ -435,6 +478,7 @@ public partial class Investigation : Node
 	private void FinishCase()
 	{
 		CaseResult result = currentCase.Submit();
+		ProgressStore.Save(currentCase.Scenario.Id, result, currentCase.Solved);
 		player.SetMovementEnabled(false);
 		hud.SetNearby(null, false);
 		hud.ShowResults(currentCase, result);

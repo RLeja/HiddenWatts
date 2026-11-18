@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" path="res://assets/characters/Bob_run.png" id="5_walk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2idap"]
-size = Vector2(10, 8)
+size = Vector2(14, 10)
 
 [sub_resource type="AtlasTexture" id="Atlas_idle_right_0"]
 atlas = ExtResource("4_idle")

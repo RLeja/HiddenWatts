@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3qt63x3a0o7j"
-path="res://.godot/imported/Bob.png-377eaab32f30df6095aa76913b4351f8.ctex"
+uid="uid://cvbcw1ipg7cij"
+path="res://.godot/imported/fixtures_BA.png-c13420088dcbf5257db98dc9847008c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/Bob.png"
-dest_files=["res://.godot/imported/Bob.png-377eaab32f30df6095aa76913b4351f8.ctex"]
+source_file="res://assets/levels/fixtures_BA.png"
+dest_files=["res://.godot/imported/fixtures_BA.png-c13420088dcbf5257db98dc9847008c3.ctex"]
 
 [params]
 

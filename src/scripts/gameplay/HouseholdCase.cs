@@ -9,7 +9,7 @@ public sealed class HouseholdCase
 {
 	public const int PointsPerProblem = 100;
 
-	public const int UnusedInspectionBonus = 10;
+	public const int UnusedInspectionBonus = 20;
 
 	public const int WrongActionPenalty = 50;
 
@@ -124,7 +124,9 @@ public sealed class HouseholdCase
 
 		int unhelpfulInspections = Appliances.Count(appliance => inspected.Contains(appliance.Id) && !appliance.MajorProblem);
 		int inspectionBonus = resolved.Count > 0 ? InspectionsRemaining * UnusedInspectionBonus : 0;
-		int score = resolved.Count * PointsPerProblem + inspectionBonus
+		int cleanBonus = Solved && WrongActions == 0 && inspected.Count == resolved.Count ? 50 : 0;
+		int maximum = (int)Math.Round((Scenario.RequiredFindings * PointsPerProblem + (Scenario.InspectionBudget - Scenario.RequiredFindings) * UnusedInspectionBonus + 50) * Scenario.ScoreMultiplier);
+		int score = cleanBonus + resolved.Count * PointsPerProblem + inspectionBonus
 			- WrongActions * WrongActionPenalty - unhelpfulInspections * UnhelpfulInspectionPenalty;
 		double dailySavings = Appliances.Where(appliance => resolved.Contains(appliance.Id)).Sum(appliance => appliance.DailySavingsKwh);
 		double monthlySavings = dailySavings * 30;
@@ -133,7 +135,9 @@ public sealed class HouseholdCase
 			Correct = resolved.Count,
 			Wrong = WrongActions,
 			InspectionsUsed = inspected.Count,
-			Score = Math.Max(0, score),
+			Score = Math.Max(0, (int)Math.Round(score * Scenario.ScoreMultiplier)),
+			MaximumScore = maximum,
+			Medal = !Solved ? "Unranked" : score * Scenario.ScoreMultiplier >= maximum * 0.95 && WrongActions == 0 ? "Gold" : score * Scenario.ScoreMultiplier >= maximum * 0.75 ? "Silver" : "Bronze",
 			MonthlyKwh = monthlySavings,
 			MonthlyCost = monthlySavings * Scenario.PricePerKwh,
 			MonthlyEmissions = monthlySavings * Scenario.EmissionsPerKwh

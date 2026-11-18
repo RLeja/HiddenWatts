@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvnm25phuk58n"
-path="res://.godot/imported/Bob_idle.png-b0f74edb6e226838f5e4af3a0ffc5fe8.ctex"
+uid="uid://bt2jp06q0cp82"
+path="res://.godot/imported/textiles_BA.png-3aa33bd949375923b01cf8a2e80b4c33.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/Bob_idle.png"
-dest_files=["res://.godot/imported/Bob_idle.png-b0f74edb6e226838f5e4af3a0ffc5fe8.ctex"]
+source_file="res://assets/levels/textiles_BA.png"
+dest_files=["res://.godot/imported/textiles_BA.png-3aa33bd949375923b01cf8a2e80b4c33.ctex"]
 
 [params]
 
